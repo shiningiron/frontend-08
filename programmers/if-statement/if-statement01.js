@@ -4,13 +4,25 @@
 
 // 두 개 모두 false면 "false"라는 문구를 띄워주세요.
 
-function boolean(input1, input2) {
-	if(input1 || input2) {
-    console.log(true);
-  } else {
-    console.log(false);
+// function boolean(input1, input2) {
+// 	if(input1 || input2) {
+//     console.log(true);
+//   } else {
+//     console.log(false);
+//   }
+// }
+// boolean(true, false) // "true"
+// boolean(false, true) // "true"
+// boolean(false, false) // "false"
+
+function boolean(input1, input2){
+  if(input1===true || input2===true){
+    return 'true'
+  } else if(input1===false && input2===false){
+    return 'false'
   }
 }
-boolean(true, false) // "true"
-boolean(false, true) // "true"
-boolean(false, false) // "false"
+
+boolean(true, false)
+boolean(false, true)
+boolean(false, false)

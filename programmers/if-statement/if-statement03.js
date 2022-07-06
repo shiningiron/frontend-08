@@ -9,17 +9,26 @@
 // 24이상이면 "조금 덥습니다"
 
 
+// function temperature(num){
+// 	if(Number(num)>18 && Number(num<24)) {
+//     return "날씨가 좋네요"
+// 	} else if(Number(num)<19) {
+//     return "조금 춥네요"
+//   } else {
+//     return "조금 덥습니다"
+//   }
+// }
+
+// temperature(13);  // "조금 춥네요"
+// temperature(23);  // "날씨가 좋네요"
+// temperature(27);  // "조금 덥습니다"
+
 function temperature(num){
-	if(Number(num)>18 && Number(num<24)) {
-		console.log("날씨가 좋네요");
-	} else if(Number(num)<19) {
-    console.log("조금 춥네요");
-  } else {
-    console.log("조금 덥습니다");
+  if(num >= 24){
+    return '조금 덥습니다.'
+  } else if (num >= 19 && num <= 23){
+    return '날씨가 좋네요'
+  } else if (num <= 18){
+    return '조금 춥네요'
   }
 }
-
-temperature(13);  // "조금 춥네요"
-temperature(23);  // "날씨가 좋네요"
-temperature(27);  // "조금 덥습니다"
-

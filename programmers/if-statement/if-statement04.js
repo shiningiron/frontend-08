@@ -2,16 +2,38 @@
 
 // 각 조건에 해당하는 알맞은 값을 입력해주세요.
 
-function days(month) {
-	if(Number(month)%2===0 && Number(month)!==8 && Number(month)!==2) {
-		console.log(30);
-  } else if (Number(month)===2) {
-  console.log(28);
-	} else {
-    console.log(31);
+function days (month) {
+  if(month===1 || month===3 || month===5 || month===7 || month===8 || month===10 || month===12) {
+    return 31
+  } else if(month===2){
+    return 28
+  } else if(month===4 || month===6 || month===9 || month===11){
+    return 30
   }
 }
 
+
+//  ** 객체 이용하는 방법
+
+
+const monthList = {
+  1:31,
+  2:28,
+  3:31,
+  4:30,
+  5:31,
+  6:30,
+  7:31,
+  8:31,
+  9:30,
+  10:31,
+  11:30,
+  12:31
+}
+
+function days (month) {
+  return monthList[month]
+}
 days(1); // 31
 days(2); // 28
 days(4); // 30
