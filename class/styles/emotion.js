@@ -110,3 +110,95 @@ export const NavTitle = styled.p`
     color: #ADADAD;
     :hover {color: #FF1B6D;};
 `
+export const ErrorMassage = styled.span`
+    color:red;
+`
+
+// 로그인 페이지
+export const LoginWrapper = styled.div`
+    width: 640px;
+    padding: 220px 50px 60px;
+    background-color: rgba(48, 43, 43, 0.8) ;
+`
+export const Logo = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+export const LogoText = styled.h1`
+    font-weight: 700;
+    font-size: 60px;
+    color: #FFFFFF;
+`
+export const LoginRowBetween = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #7D7D7D;
+`
+export const LoginRow = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+`
+export const LoginCol = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 20px 0px;
+`
+export const LoginEmail = styled.input`
+    background-color: rgba(255,255,255,0);
+    border: none;
+    caret-color: white;
+    :focus { outline:none;};
+    width: 100%;
+    font-weight: 400;
+    font-size: 24px;
+    color: #FFFFFF;
+`
+export const ClearIcon = styled.div`
+    display: flex;
+    align-items: center;
+    color: gray;
+`
+export const LoginBtn = styled.button`
+    width: 540px;
+    height: 76px;
+    background: rgba(255, 27, 109, 0.6);
+    border: none;
+    border-radius: 38px;
+    font-weight: 700;
+    font-size: 26px;
+    color: #ffffff;
+    :active{background: rgba(255, 27, 109, 0.4);};
+    margin-bottom: 20px;
+`
+export const KakaoLoginBtn = styled.button`
+    width: 540px;
+    height: 76px;
+    background: rgba(255, 27, 109, 0);
+    border: 2px solid #FAE100;
+    border-radius: 38px;
+    font-weight: 700;
+    font-size: 26px;
+    color: #ffffff;
+    :active{opacity: 1;};
+    margin: 20px 0px;
+`
+export const LoginHelp = styled.div`
+    font-weight: 700;
+    font-size: 20px;
+    color: #ffffff;
+`
+export const Partition = styled.div`
+    width: 0px;
+    border: 1px solid #9F9F9F
+`
+export const LoginErrorMassage = styled.span`
+    color:red;
+`
