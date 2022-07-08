@@ -1,5 +1,6 @@
 import { useMutation, gql } from '@apollo/client'
 import {useState} from 'react'
+import { useRouter } from 'next/router'
 const CREATE_BOARD = gql`
      mutation createBoard($writer: String, $title: String, $contents: String){
         createBoard(writer: $writer, title: $title, contents: $contents){
@@ -11,22 +12,28 @@ const CREATE_BOARD = gql`
 `
 
 export default function graphqlMutationPage () {
-    
-const [writer, setWriter] = useState("")
-const [title, setTitle] = useState("")    
-const [contents, setContents] = useState("")
-const [createBoard] = useMutation(CREATE_BOARD)
+
+    const router = useRouter()
+    const [writer, setWriter] = useState("")
+    const [title, setTitle] = useState("")    
+    const [contents, setContents] = useState("")
+    const [createBoard] = useMutation(CREATE_BOARD)
 
     const onClickGraphqlAPI = async() => {
-        const result = await createBoard({
-            variables: {
-                writer: writer,
-                title: title,
-                contents: contents
-            }
-        })
-        console.log(result)
-        console.log(result.data.createBoard.message)
+        try{
+            const result = await createBoard({
+                variables: {
+                    writer: writer,
+                    title: title,
+                    contents: contents
+                }
+            })
+            router.push(`/05-08-dynamic-routed-board-query/${result.data.createBoard.number}`)
+            console.log(result.data.createBoard.number)
+        } catch (error) {
+            console.log(error.message)
+            alert("실패했습니다!!")
+        }
     }
 
     const onChangeWriter = (event) => {

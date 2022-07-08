@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {useMutation , gql} from '@apollo/client'
 import {
     Address,
     ButtonWrapper,
@@ -22,7 +23,26 @@ import {
     Youtube,
     Zipcode,
     ZipcodeWrapper
-  } from "../../styles/boardStyled"
+  } from "../../../styles/boardStyled"
+
+  const CREATE_BOARD = gql`
+    mutation createBoard ($writer: String, $password: String, $title: String!, $contents: String!){createBoard(createBoardInput:{
+    writer:$writer
+    password:$password
+    title:$title
+    contents:$contents
+  }){
+    _id
+    contents
+    title
+    likeCount
+    dislikeCount
+    createdAt
+    updatedAt
+  }
+}
+  `
+
 
   
   export default function BoardWriteUI() {
@@ -35,41 +55,42 @@ import {
     const [subjectError, setSubjectError] = useState("");
     const [contents, setContents] = useState("");
     const [contentsError, setContentsError] = useState("");
+    const [createBoard] = useMutation(CREATE_BOARD)
 
-    function onChangeWriter (event) {
+    const onChangeWriter = (event) => {
         setWriter(event.target.value);
+        (event.target.value) === "" ? setWriterError("이름이 비어있습니다. 이름을 적어주세요") : setWriterError("")
     }
-    function onChangePassword (event) {
+    const onChangePassword = (event) => {
         setPassword(event.target.value);
+        (event.target.value) === "" ? setPasswordError("비밀번호가 비어있습니다. 비밀번호를 적어주세요") : setPasswordError("")
     }
-    function onChangeSubject (event) {
+    const onChangeSubject = (event) => {
         setSubject(event.target.value);
+        (event.target.value) === "" ? setSubjectError("제목이 비어있습니다. 제목을 적어주세요") : setSubjectError("")
     }
-    function onChangeContents (event) {
+    const onChangeContents = (event) => {
         setContents(event.target.value);
+        (event.target.value) === "" ? setContentsError("내용이 비어있습니다. 내용을 적어주세요"): setContentsError("")
     }
 
-    function onClickSubmitButton () {
-        if (writer==="") {
-            setWriterError("이름이 비어있습니다. 이름을 적어주세요")
-        } else {
-            setWriterError("")
+    const onClickSubmitButton = async () => {
+      if (writer === "") setWriterError("이름이 비어있습니다. 이름을 적어주세요")
+      if (password === "") setPasswordError("비밀번호가 비어있습니다. 비밀번호를 적어주세요")
+      if (subject === "") setSubjectError("제목이 비어있습니다. 제목을 적어주세요")
+      if (contents === "") setContentsError("내용이 비어있습니다. 내용을 적어주세요")
+      if (writer!==""&&password!==""&&subject!==""&&contents!=="") alert("게시글이 등록되었습니다.")
+
+      const result = await createBoard({
+        variables: {
+            writer: writer,
+            password: password,
+            title: subject,
+            contents: contents
         }
-        if (password==="") {
-            setPasswordError("비밀번호가 비어있습니다. 비밀번호를 적어주세요")
-        } else {
-            setPasswordError("")
-        }
-        if (subject===""){
-            setSubjectError("제목이 비어있습니다. 제목을 적어주세요")
-        } else {
-            setSubjectError("");
-        }
-        if (contents===""){
-            setContentsError("내용이 비어있습니다. 내용을 적어주세요")
-        } else {
-            setContentsError("")
-        }
+      })
+      console.log(result.data)
+
     }
 
     return (
