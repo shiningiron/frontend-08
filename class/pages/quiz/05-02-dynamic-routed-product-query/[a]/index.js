@@ -5,13 +5,13 @@ import { useRouter } from "next/router";
 const FETCH_PRODUCT = gql`
     query fetchProduct($productId: ID){
         fetchProduct(productId: $productId){
-        _id
-        seller
-        name
-        detail
-        price
+            _id
+            seller
+            name
+            detail
+            price
+        }
     }
-}
 `
 
 export default function DynamicRoutedPage () {
@@ -27,10 +27,10 @@ export default function DynamicRoutedPage () {
     return (
         <>
             <div>{data?.fetchProduct._id}</div>
-            <div>판매자: {data && data.fetchProduct.seller}</div>
-            <div>상품명: {data?.fetchProduct.name}</div>
-            <div>상품내용: {data ? data.fetchProduct.detail : "loading"} </div>
-            <div>상품가격: </div>
+            <div>판매자: {data ? data.fetchProduct.seller : "loading..."}</div>
+            <div>상품명: {data ? data.fetchProduct.name : "loading..."}</div>
+            <div>상품내용: {data ? data.fetchProduct.detail : "loading..."} </div>
+            <div>상품가격: {data ? data.fetchProduct.price : "loading..."}</div>
         </>
     )
 }

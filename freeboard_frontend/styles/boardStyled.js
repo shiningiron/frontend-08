@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+// import { jsx } from "@emotion/react";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -173,3 +174,32 @@ export const ErrorMassage = styled.div`
   font-size: 14px;
   color: red;
 `;
+
+// //상세 페이지
+
+// export const HeaderBox = styled.div`
+//   padding-top: 40px;
+//   display: flex;
+//   justify-content: space-between;
+// `;
+// export const WriterInfoBox = styled.div``;
+// export const Img = styled.img``;
+// export const Thumb = styled.a`
+//   margin-right: 16px;
+//   width: 46px;
+//   height: 46px;
+//   ${Img} {
+//     border-radius: 50%;
+//   }
+//   &::after {
+//     content: "";
+//     border-radius: 50%;
+//     /* border: 1px solid black; */
+//   }
+// `;
+
+// export const ProfileBox = styled.div``;
+
+
+
+

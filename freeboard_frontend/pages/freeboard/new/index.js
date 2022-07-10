@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {useMutation , gql} from '@apollo/client'
+import {useRouter} from 'next/router'
 import {
     Address,
     ButtonWrapper,
@@ -25,20 +26,18 @@ import {
     ZipcodeWrapper
   } from "../../../styles/boardStyled"
 
+  // $writer: String, $password: String, $title: String!, $contents: String!
+
+
   const CREATE_BOARD = gql`
-    mutation createBoard ($writer: String, $password: String, $title: String!, $contents: String!){createBoard(createBoardInput:{
-    writer:$writer
-    password:$password
-    title:$title
-    contents:$contents
-  }){
+    mutation createBoard ($createBoardInput:CreateBoardInput!){createBoard(createBoardInput:$createBoardInput){
     _id
     contents
     title
-    likeCount
-    dislikeCount
-    createdAt
-    updatedAt
+    # likeCount
+    # dislikeCount
+    # createdAt
+    # updatedAt
   }
 }
   `
@@ -55,6 +54,7 @@ import {
     const [subjectError, setSubjectError] = useState("");
     const [contents, setContents] = useState("");
     const [contentsError, setContentsError] = useState("");
+    const router = useRouter();
     const [createBoard] = useMutation(CREATE_BOARD)
 
     const onChangeWriter = (event) => {
@@ -75,23 +75,31 @@ import {
     }
 
     const onClickSubmitButton = async () => {
-      if (writer === "") setWriterError("이름이 비어있습니다. 이름을 적어주세요")
-      if (password === "") setPasswordError("비밀번호가 비어있습니다. 비밀번호를 적어주세요")
-      if (subject === "") setSubjectError("제목이 비어있습니다. 제목을 적어주세요")
-      if (contents === "") setContentsError("내용이 비어있습니다. 내용을 적어주세요")
-      if (writer!==""&&password!==""&&subject!==""&&contents!=="") alert("게시글이 등록되었습니다.")
-
-      const result = await createBoard({
-        variables: {
+      if (!writer) setWriterError("이름이 비어있습니다. 이름을 적어주세요")
+      if (!password) setPasswordError("비밀번호가 비어있습니다. 비밀번호를 적어주세요")
+      if (!subject) setSubjectError("제목이 비어있습니다. 제목을 적어주세요")
+      if (!contents) setContentsError("내용이 비어있습니다. 내용을 적어주세요")
+      if (writer!=="" && password!=="" && subject!=="" && contents!=="") alert("게시글이 등록되었습니다.")
+      
+      try{
+        const result = await createBoard({
+          variables: { createBoardInput:{
             writer: writer,
             password: password,
             title: subject,
             contents: contents
-        }
-      })
-      console.log(result.data)
 
-    }
+          }
+          }
+        })
+        console.log(result.data)
+        router.push(`/freeboard/detailPage/${result.data.createBoard._id}`)
+      }
+      catch (error) {
+        console.log(error.message)
+        alert("실패했습니다!")
+      }
+  }
 
     return (
       <Wrapper>
