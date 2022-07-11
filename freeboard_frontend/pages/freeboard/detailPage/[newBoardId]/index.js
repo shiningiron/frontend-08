@@ -6,9 +6,23 @@ import {
     HeaderBox,
     Thumb,
     ProfileBox,
-    Img
+    ImgIcon,
+    ProfileWriter,
+    ProfileCreatedTime,
+    HeaderTool,
+    LinkTool,
+    LocationTool,
+    ContentsBox,
+    ContentsTitle,
+    Title,
+    ContentsImgBox,
+    FetchContents,
+    ContentsImg,
+    DetailContents
 
 } from "../../../../styles/boardStyled"
+import {AiOutlineLink} from "react-icons/ai"
+import {VscLocation} from "react-icons/vsc"
 
 
 const FETCH_BOARD = gql`
@@ -18,6 +32,7 @@ const FETCH_BOARD = gql`
             writer
             title
             contents
+            createdAt
         }
     }
 `
@@ -33,20 +48,49 @@ export default function DetailPage () {
     console.log(data)
 
     return (
-    <div>{data ?. fetchBoard._id}</div>
-        // <Wrapper>
-            
-        //     <HeaderBox>
-        //         <WriterInfoBox>
-        //             <Thumb>
-                        
-        //             </Thumb>
-        //             <ProfileBox>
-        //                 <Img/>
-        //             </ProfileBox>
-        //         </WriterInfoBox>
-        //     </HeaderBox>
-        // </Wrapper>
+        
+    // <div>{data ?. fetchBoard._id}</div> 
+        <Wrapper>
+            <HeaderBox>
+                <WriterInfoBox>
+                    <Thumb>
+                        <ImgIcon src="/pizza.png"/>
+                    </Thumb>
+                    <ProfileBox>
+                       <ProfileWriter>
+                            {data ?. fetchBoard.writer}
+                       </ProfileWriter>
+                       <ProfileCreatedTime>
+                          DATE: {data ?. fetchBoard.createdAt}
+                       </ProfileCreatedTime>
+                    </ProfileBox>
+                </WriterInfoBox>
+                <HeaderTool>
+                    <LinkTool>
+                        <AiOutlineLink size={40}/>
+                    </LinkTool>
+                    <LocationTool>
+                        <VscLocation size={40}/>
+                    </LocationTool>
+                </HeaderTool>
+            </HeaderBox>
+            <ContentsBox>
+                <ContentsTitle>
+                    <Title>
+                        {data ?. fetchBoard.title}
+                    </Title>
+                </ContentsTitle>
+                <ContentsImgBox>
+                    <ContentsImg src="/pizza.png"/>
+                </ContentsImgBox>
+                <FetchContents>
+                    <DetailContents>
+                        {data ?. fetchBoard.contents}
+                    </DetailContents>
+                </FetchContents>
+            </ContentsBox>
+        </Wrapper>
+    
     )
 }
 

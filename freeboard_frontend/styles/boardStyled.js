@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-// import { jsx } from "@emotion/react";
+// import styled from "@emotion/babel-plugin"
+
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -177,29 +178,85 @@ export const ErrorMassage = styled.div`
 
 // //상세 페이지
 
-// export const HeaderBox = styled.div`
-//   padding-top: 40px;
-//   display: flex;
-//   justify-content: space-between;
-// `;
-// export const WriterInfoBox = styled.div``;
-// export const Img = styled.img``;
-// export const Thumb = styled.a`
-//   margin-right: 16px;
-//   width: 46px;
-//   height: 46px;
-//   ${Img} {
-//     border-radius: 50%;
-//   }
-//   &::after {
-//     content: "";
-//     border-radius: 50%;
-//     /* border: 1px solid black; */
-//   }
-// `;
+export const HeaderBox = styled.div`
+  padding-top: 40px;
+  padding-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #BDBDBD;
+`;
+export const WriterInfoBox = styled.div`
+  display: flex;
 
-// export const ProfileBox = styled.div``;
+`;
+export const Thumb = styled.a`
+  margin-right: 16px;
+  width: 46px;
+  height: 46px;
+`;
+export const ImgIcon = styled.img`
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+`;
 
+export const ProfileBox = styled.div`
 
+`;
 
+export const ProfileWriter = styled.div`
+  font-weight: 500;
+  font-size: 24px;
+`;
 
+export const ProfileCreatedTime = styled.div`
+  width: 135px;
+  text-overflow: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 16px;
+  color: #828282;
+`;
+
+export const HeaderTool = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const LinkTool = styled.div`
+  margin-right: 20px;
+`;
+
+export const LocationTool = styled.div`
+
+`;
+export const ContentsBox = styled.div`
+  padding-top: 80px;
+  width: 100%;
+`;
+export const ContentsTitle = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+`;
+export const ContentsImgBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 56%;
+  /* border: 1px solid gray; */
+  
+`;
+export const ContentsImg = styled.img`
+
+`;
+export const FetchContents = styled.div`
+
+`;
+export const DetailContents = styled.p`
+  font-weight: 400;
+  font-size: 16px;
+`;
