@@ -1,4 +1,4 @@
-import { useQuery,gql } from '@apollo/client'
+import { useQuery} from '@apollo/client'
 import { FETCH_PRODUCT } from './ProductFetch.queries'
 import { useRouter } from 'next/router'
 import ProductDetailUI from './ProductDetailPage.presenter'

@@ -1,6 +1,7 @@
-import { useMutation } from '@apollo/client'
+import { useMutation, useQuery } from '@apollo/client'
 import {useState} from 'react'
 import { CREATE_PRODUCT, UPDATE_PRODUCT } from './ProductMutation.queries'
+import { FETCH_PRODUCT } from '../detail/ProductFetch.queries'
 import { useRouter } from 'next/router'
 import ProductPageUI from './ProductWritePage.presenter'
 
@@ -15,8 +16,13 @@ export default function ProductWrite(props){
     const [createProduct] = useMutation(CREATE_PRODUCT)
     const [updateProduct] = useMutation(UPDATE_PRODUCT)
     const router = useRouter()
-    const [mycolor,setMycolor] = useState(false)
-    
+
+        const {data} = useQuery(FETCH_PRODUCT,{
+            variables: { productId: router.query.id }
+        }) 
+        console.log(data)
+
+     
         const onClickCreate = async() => {
             const result = await createProduct({
                 variables: {
@@ -51,39 +57,18 @@ export default function ProductWrite(props){
     
         const onChangeSeller = (event) => {
             setSeller(event.target.value)
-            if(event.target.value && name && detail && price){
-                setMycolor(true)
-            } else {
-                setMycolor(false)
-            }
         }
     
         const onChangeName = (event) => {
             setName(event.target.value)
-            if(seller && event.target.value && detail && price){
-                setMycolor(true)
-            } else {
-                setMycolor(false)
-            }
         }
     
         const onChangeDetail = (event) => {
             setDetail(event.target.value)
-            if(seller && name && event.target.value && price){
-                setMycolor(true)
-            } else {
-                setMycolor(false)
-            }
-        }
+       }
 
         const onChangePrice = (event) => {
             setPrice(event.target.value)
-            if(seller && name && detail && event.target.value){
-                setMycolor(true)
-            } else {
-                setMycolor(false)
-            }
-
         }
 
         
@@ -99,7 +84,7 @@ export default function ProductWrite(props){
             onChangeName = {onChangeName}
             onChangePrice = {onChangePrice}
             onChangeDetail = {onChangeDetail}
-            mycolor={mycolor}
+            data = {data}
             isEdit={props.isEdit}
             />
     
