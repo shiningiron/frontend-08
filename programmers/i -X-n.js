@@ -11,7 +11,7 @@ function solution(x, n) {
     for(let i = 1; i <= n; i++){
         answer.push(i * x)
     }
-    retrun answer
+    return answer
 }
 
 function solution(x, n) {
