@@ -1,6 +1,6 @@
-import React from 'react'
-import  ReactPlayer  from  'react-player/youtube'
-import styled from '@emotion/styled';
+import React from "react";
+import ReactPlayer from "react-player/youtube";
+import styled from "@emotion/styled";
 
 const PlayerWrapper = styled.div`
   /* position: relative; */
@@ -11,21 +11,19 @@ const PlayerWrapper = styled.div`
     left: 0;
   }
 `;
-export default function player(){
-
-  return(
-      <PlayerWrapper>
-        <ReactPlayer 
-          className="react-player" 
-          url={"https://www.youtube.com/watch?v=ux3rHgjEs2Q"} 
-          width="800px" 
-          height="600px" 
-          muted={true}
-          playing={true} 
-          loop={true}
-          controls={true} />
-      </PlayerWrapper>
-
-
-  )
+export default function player() {
+  return (
+    <PlayerWrapper>
+      <ReactPlayer
+        className="react-player"
+        url={"https://www.youtube.com/watch?v=ux3rHgjEs2Q"}
+        width="100px"
+        height="50px"
+        muted={true}
+        playing={true}
+        loop={true}
+        controls={true}
+      />
+    </PlayerWrapper>
+  );
 }

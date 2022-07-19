@@ -1,34 +1,42 @@
-
-import { ChangeEvent } from "react"
-import { IQuery, } from "../../../../commons/types/generated/types"
+import { ChangeEvent } from "react";
+import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface ICreateBoardUIProps {
-    onClickSubmitButton: () => void
-    onClickUpdate: () => void
-    onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void
-    onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void
-    onChangeSubject: (event: ChangeEvent<HTMLInputElement>) => void
-    onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void
-    writerError : string
-    passwordError : string
-    subjectError : string
-    contentsError : string
-    isEdit : boolean
-    data? : Pick<IQuery,"fetchBoard">
+  onClickSubmitButton: () => void;
+  onClickUpdate: () => void;
+  onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeSubject: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChangeYoutubeUrl: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
+  onCompletePostcode: (postData: any) => void;
+  onToggleModal: () => void;
+  isModalVisible: boolean;
+  writerError: string;
+  passwordError: string;
+  subjectError: string;
+  contentsError: string;
+  isEdit: boolean;
+  // addressDetail: string;
+  address: string;
+  zipcode: string;
+  data?: Pick<IQuery, "fetchBoard">;
 }
 
 export interface IMyVariables {
-    boardId: string
-    password: string
-    updateBoardInput: {
-        title: string,
-        contents: string
-    }
+  updateBoardInput: {
+    title: string;
+    contents: string;
+    youtubeUrl: string;
+  };
 }
 
 export interface ICreateBoardProps {
-    isEdit: boolean
-    data?: Pick<IQuery, "fetchBoard">
-    
+  isEdit: boolean;
+  data?: Pick<IQuery, "fetchBoard">;
+  postData: any;
+  address: string;
+  zipcode: string;
+  boardAddress: string;
 }
-

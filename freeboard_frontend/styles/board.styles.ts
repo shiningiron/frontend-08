@@ -1,16 +1,28 @@
+// #7b68ee
+
 import styled from "@emotion/styled";
-import {injectGlobal} from '@emotion/css'
-// import styled from "@emotion/babel-plugin"
+import { injectGlobal } from "@emotion/css";
+import ReactPlayer from "react-player";
+import { Modal, Button } from "antd";
+import DaumPostcodeEmbed from "react-daum-postcode";
 
+// 라이브러리//----------------// 라이브러리//---------------------------// 라이브러리//----------
 
-#7b68ee
+export const Player = styled(ReactPlayer)`
+  width: 640px;
+  height: 480px;
+`;
+
+export const AddressModal = styled(Modal)``;
+export const AddressSearchButton = styled(Button)``;
+export const DaumPostcodeLibrary = styled(DaumPostcodeEmbed)``;
 
 injectGlobal`
   body{
     background-color: #7b68ee;
   }
 
-`
+`;
 //  등록 페이지------------------등록 페이지------------등록 페이지---------------------등록 페이지--------------------
 
 export const Wrapper = styled.div`
@@ -26,7 +38,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border: none;
-  box-shadow: 0px 0px 10px ;
+  box-shadow: 0px 0px 10px;
   background-color: #fff;
   border-radius: 10px;
 `;
@@ -197,7 +209,7 @@ export const HeaderBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #BDBDBD;
+  border-bottom: 1px solid #bdbdbd;
 `;
 export const WriterInfoBox = styled.div`
   display: flex;
@@ -213,9 +225,7 @@ export const ImgIcon = styled.img`
   border-radius: 50%;
 `;
 
-export const ProfileBox = styled.div`
-
-`;
+export const ProfileBox = styled.div``;
 
 export const ProfileWriter = styled.div`
   font-weight: 500;
@@ -223,7 +233,7 @@ export const ProfileWriter = styled.div`
 `;
 
 export const ProfileCreatedTime = styled.div`
-  width: 135px;
+  width: 140px;
   text-overflow: inherit;
   overflow: hidden;
   white-space: nowrap;
@@ -237,12 +247,16 @@ export const HeaderTool = styled.div`
   justify-content: space-between;
 `;
 
-export const LinkTool = styled.div`
+export const LinkTool = styled.img`
   margin-right: 20px;
+  width: 20px;
+  height: 20px;
 `;
 
-export const LocationTool = styled.div`
-
+export const LocationTool = styled.img`
+  margin-right: 20px;
+  width: 20px;
+  height: 20px;
 `;
 export const ContentsBox = styled.div`
   padding-top: 80px;
@@ -260,15 +274,13 @@ export const ContentsImgBox = styled.div`
   width: 100%;
   height: 56%;
   /* border: 1px solid gray; */
-  
 `;
-export const ContentsImg = styled.img`
-
-`;
-export const FetchContents = styled.div`
-
-`;
+export const ContentsImg = styled.img``;
+export const FetchContents = styled.div``;
 export const DetailContents = styled.p`
   font-weight: 400;
   font-size: 16px;
+`;
+export const PlayerBox = styled.div`
+  padding: 50px;
 `;
