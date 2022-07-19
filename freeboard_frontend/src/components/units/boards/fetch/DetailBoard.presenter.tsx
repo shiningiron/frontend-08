@@ -1,4 +1,4 @@
-import * as B from '../styles/board.styles'
+import * as B from '../../../../../styles/board.styles'
 import {AiOutlineLink} from "react-icons/ai"
 import {VscLocation} from "react-icons/vsc"
 import { IDetailBoardUIProps } from './DetailBoard.types'

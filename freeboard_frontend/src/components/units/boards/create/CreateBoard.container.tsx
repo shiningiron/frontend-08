@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client'
 import { CREATE_BOARD, UPDATE_BOARD } from './CreateBoard.queries';
 import { useRouter } from 'next/router'
 import CreateBoardUI from './CreateBoard.presenter';
-import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs } from '../../../../commons/types/generated/types';
+import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs} from '../../../../commons/types/generated/types';
 import { ICreateBoardProps, IMyVariables } from './CreateBoard.types';
 
 
@@ -21,6 +21,7 @@ export default function CreateBoardContainer (props: ICreateBoardProps) {
     const router = useRouter();
     const [createBoard] = useMutation<Pick<IMutation,"createBoard">,IMutationCreateBoardArgs>(CREATE_BOARD)
     const [updateBoard] = useMutation<Pick<IMutation,"updateBoard">,IMutationUpdateBoardArgs>(UPDATE_BOARD)
+    
 
     const onChangeWriter = (event: ChangeEvent<HTMLInputElement>) => {
         setWriter(event.target.value);
@@ -39,6 +40,7 @@ export default function CreateBoardContainer (props: ICreateBoardProps) {
         (event.target.value) === "" ? setContentsError("내용이 비어있습니다. 내용을 적어주세요"): setContentsError("")
     }
 
+    
     const onClickSubmitButton = async () => {
       if (!writer) setWriterError("이름이 비어있습니다. 이름을 적어주세요")
       if (!password) setPasswordError("비밀번호가 비어있습니다. 비밀번호를 적어주세요")
@@ -68,7 +70,15 @@ export default function CreateBoardContainer (props: ICreateBoardProps) {
   }
 
   const onClickUpdate = async () => {
-    
+    if (!subject && !contents) {
+      alert("수정한 내용이 없습니다.");
+      return;
+    }
+
+    if (!password) {
+      alert("비밀번호를 입력해주세요.");
+      return;
+    }
     const myVariables: IMyVariables = {
       boardId: router.query.newBoardId as string,
       password,
@@ -80,15 +90,22 @@ export default function CreateBoardContainer (props: ICreateBoardProps) {
     if(subject) myVariables.updateBoardInput.title = subject
     if(contents) myVariables.updateBoardInput.contents = contents
     
-    const result = await updateBoard({
-        variables: myVariables
-    })
+    try{
 
-
-    console.log(router)
-    router.push(`/freeboard/${result.data?.updateBoard._id}`)
-
+      const result = await updateBoard({
+          variables: myVariables
+      })
+  
+  
+      console.log(router)
+      router.push(`/freeboard/${result.data?.updateBoard._id}`)
+    }catch(error){
+      if(!password) {
+        alert("비밀번호를 입력해 주세요.")
+      }
+      console.log(error.message)
     } 
+  }
     
 
 
@@ -106,6 +123,8 @@ export default function CreateBoardContainer (props: ICreateBoardProps) {
         subjectError = {subjectError}
         contentsError = {contentsError}
         isEdit = {props.isEdit}
+        data = {props.data}
     />
+
 
 }

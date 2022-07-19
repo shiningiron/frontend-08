@@ -1,4 +1,4 @@
-import * as B from '../styles/board.styles'
+import * as B from '../../../../../styles/board.styles'
 import { ICreateBoardUIProps } from './CreateBoard.types'
 
 
@@ -11,7 +11,7 @@ export default function CreateBoardUI (props: ICreateBoardUIProps) {
         <B.WriterWrapper>
           <B.InputWrapper>
             <B.Label>작성자</B.Label>
-            <B.Writer type="text" placeholder="이름을 적어주세요." onChange={props.onChangeWriter}/>
+            <B.Writer type="text" placeholder="이름을 적어주세요." onChange={props.onChangeWriter} defaultValue={props.data?.fetchBoard.writer||""} readOnly={!!props.data?.fetchBoard.writer}/>
             <B.ErrorMessage>{props.writerError}</B.ErrorMessage>
           </B.InputWrapper>
           <B.InputWrapper>
@@ -22,12 +22,12 @@ export default function CreateBoardUI (props: ICreateBoardUIProps) {
         </B.WriterWrapper>
         <B.InputWrapper>
           <B.Label>제목</B.Label>
-          <B.Subject type="text" placeholder="제목을 작성해주세요." onChange={props.onChangeSubject}/>
+          <B.Subject type="text" placeholder="제목을 작성해주세요." onChange={props.onChangeSubject} defaultValue={props.data?.fetchBoard.title||""}/>
           <B.ErrorMessage>{props.subjectError}</B.ErrorMessage>
         </B.InputWrapper>
         <B.InputWrapper>
           <B.Label>내용</B.Label>
-          <B.Contents placeholder="내용을 작성해주세요." onChange={props.onChangeContents}/>
+          <B.Contents placeholder="내용을 작성해주세요." onChange={props.onChangeContents} defaultValue={props.data?.fetchBoard.contents||""}/>
           <B.ErrorMessage>{props.contentsError}</B.ErrorMessage>
         </B.InputWrapper>
         <B.InputWrapper>

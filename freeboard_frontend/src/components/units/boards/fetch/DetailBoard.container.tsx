@@ -11,7 +11,7 @@ export default function DetailBoardContainer () {
     const {data} = useQuery<Pick<IQuery,'fetchBoard'>,IQueryFetchBoardArgs>(FETCH_BOARD,{
         variables: { boardId: router.query.newBoardId as string }
     })
-    console.log(data)
+    // console.log(data)
 
     const onClickMoveToEdit = () => {
         router.push(`/freeboard/${router.query.newBoardId}/edit`)
