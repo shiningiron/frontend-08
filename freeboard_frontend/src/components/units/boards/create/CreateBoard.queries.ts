@@ -42,7 +42,14 @@ export const UPDATE_BOARD = gql`
       likeCount
       dislikeCount
       images
-      boardAddress
+      boardAddress {
+        _id
+        zipcode
+        address
+        addressDetail
+        createdAt
+        updatedAt
+      }
       # user
       createdAt
       updatedAt

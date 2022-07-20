@@ -1,4 +1,4 @@
-import * as B from "../../../../../styles/board.styles";
+import * as B from "../../../../commons/styles/board.styles";
 import { ICreateBoardUIProps } from "./CreateBoard.types";
 
 export default function CreateBoardUI(props: ICreateBoardUIProps) {
