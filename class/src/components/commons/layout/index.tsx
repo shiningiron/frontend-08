@@ -25,7 +25,7 @@ export default function Layout(props: ILayoutProps) {
             <div style={{ display: "flex" }}>
                 <div
                     style={{
-                        width: "150px",
+                        width: "15%",
                         height: "700px",
                         backgroundColor: "purple",
                     }}
@@ -33,7 +33,7 @@ export default function Layout(props: ILayoutProps) {
                     SideBar
                 </div>
 
-                <div>{props.children}</div>
+                <div style={{ width: "70%" }}>{props.children}</div>
             </div>
             <LayoutFooter />
         </>

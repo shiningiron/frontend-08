@@ -1,10 +1,15 @@
 import styled from "@emotion/styled";
+import ReactSlider from "../../../../commons/libraries/slick/index";
 
 const Wrapper = styled.div`
-    height: 100px;
-    background-color: yellow;
+    display: absolute;
+    height: 350px;
+    background-color: #fff;
 `;
-
-export default function LayoutBanner() {
-    return <Wrapper>여기는 Banner 영역 입니다</Wrapper>;
+export default function BannerLayout() {
+    return (
+        <Wrapper>
+            <ReactSlider />
+        </Wrapper>
+    );
 }

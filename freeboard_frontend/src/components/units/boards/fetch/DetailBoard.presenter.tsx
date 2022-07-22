@@ -9,7 +9,7 @@ export default function DetailBoardUI(props: IDetailBoardUIProps) {
       <B.HeaderBox>
         <B.WriterInfoBox>
           <B.Thumb>
-            <B.ImgIcon src="/pizza.png" />
+            <B.ImgIcon src="/purple.jpeg" />
           </B.Thumb>
           <B.ProfileBox>
             <B.ProfileWriter>{props.data?.fetchBoard?.writer}</B.ProfileWriter>
@@ -52,6 +52,8 @@ export default function DetailBoardUI(props: IDetailBoardUIProps) {
       <B.SubmitButton onClick={props.onClickMoveToEdit}>
         수정하기
       </B.SubmitButton>
+      <B.SubmitButton onClick={props.onClickMoveToList}>목록</B.SubmitButton>
+      <B.SubmitButton onClick={props.onClickDelete}>게시글 삭제</B.SubmitButton>
     </B.Wrapper>
   );
 }

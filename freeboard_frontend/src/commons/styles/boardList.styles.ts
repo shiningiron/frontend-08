@@ -12,7 +12,7 @@ export const ListWrapper = styled.div`
   width: 1200px;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid #4b0082;
   margin-left: 100px;
   margin-top: 100px;
 `;
@@ -24,7 +24,7 @@ export const ListBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid black;
+  border-top: 1px solid #4b0082;
   font-size: 25px;
 `;
 export const Title = styled.div`

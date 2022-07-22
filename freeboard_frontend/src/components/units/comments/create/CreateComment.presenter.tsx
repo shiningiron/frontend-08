@@ -7,7 +7,7 @@ export default function CommentUI(props: ICreateCommentUIProps) {
     <Cmt.Box>
       <Cmt.WriterInfoBox>
         <Cmt.Thumb>
-          <Cmt.ImgIcon src="/pizza.png" />
+          <Cmt.ImgIcon src="/purple.jpeg" />
         </Cmt.Thumb>
         <Cmt.ProfileBox>
           <Cmt.ProfileWriter>

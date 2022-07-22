@@ -9,8 +9,8 @@ export const Box = styled.div`
   width: 1200px;
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #bdbdbd;
-  border-bottom: 1px solid #bdbdbd;
+  border-top: 1px solid #4b0082;
+  border-bottom: 1px solid #4b0082;
 `;
 export const WriterInfoBox = styled.div`
   display: flex;

@@ -5,4 +5,6 @@ export interface IDetailBoardUIProps {
   boardAddress: string;
   onClickMoveToEdit: () => void;
   onClickLocation: () => void;
+  onClickMoveToList: () => void;
+  onClickDelete: () => void;
 }

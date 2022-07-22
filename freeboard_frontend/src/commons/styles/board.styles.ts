@@ -39,7 +39,7 @@ export const Wrapper = styled.div`
   align-items: center;
   border: none;
   box-shadow: 0px 0px 10px;
-  background-color: #fff;
+  background-color: rgba(250, 240, 230, 0.5);
   border-radius: 10px;
 `;
 
@@ -122,14 +122,14 @@ export const Address = styled.input`
   height: 52px;
   margin-top: 16px;
   padding-left: 16px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid #4b0082;
 `;
 
 export const Youtube = styled.input`
   width: 996px;
   height: 52px;
   padding-left: 16px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid #4b0082;
 `;
 
 export const ImageWrapper = styled.div`
@@ -186,13 +186,13 @@ export const SubmitButton = styled.button`
   width: 179px;
   height: 52px;
   border: none;
+  border-radius: 10px;
   font-size: 16px;
   font-weight: 500;
   margin-left: 12px;
   margin-right: 12px;
   cursor: pointer;
-
-  background-color: yellow;
+  background-color: rgba(255, 20, 147, 0.4);
 `;
 
 export const ErrorMessage = styled.div`
@@ -209,7 +209,7 @@ export const HeaderBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #bdbdbd;
+  border-bottom: 2px solid #4b0082;
 `;
 export const WriterInfoBox = styled.div`
   display: flex;
@@ -233,7 +233,7 @@ export const ProfileWriter = styled.div`
 `;
 
 export const ProfileCreatedTime = styled.div`
-  width: 140px;
+  width: auto;
   text-overflow: inherit;
   overflow: hidden;
   white-space: nowrap;
