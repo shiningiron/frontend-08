@@ -1,28 +1,30 @@
 // #7b68ee
 
 import styled from "@emotion/styled";
-import { injectGlobal } from "@emotion/css";
 import ReactPlayer from "react-player";
 import { Modal, Button } from "antd";
 import DaumPostcodeEmbed from "react-daum-postcode";
 
 // 라이브러리//----------------// 라이브러리//---------------------------// 라이브러리//----------
 
+// 리엑트 플레이어
 export const Player = styled(ReactPlayer)`
   width: 640px;
   height: 480px;
 `;
 
+// 주소찾기 모달
 export const AddressModal = styled(Modal)``;
-export const AddressSearchButton = styled(Button)``;
+export const AddressSearchButton = styled(Button)`
+  /* padding: 5px;
+  width: 77px;
+  height: 52px;
+  background-color: darkblue;
+  border: 1px solid #4b0082; */
+`;
+
 export const DaumPostcodeLibrary = styled(DaumPostcodeEmbed)``;
 
-injectGlobal`
-  body{
-    background-color: #7b68ee;
-  }
-
-`;
 //  등록 페이지------------------등록 페이지------------등록 페이지---------------------등록 페이지--------------------
 
 export const Wrapper = styled.div`
@@ -39,7 +41,8 @@ export const Wrapper = styled.div`
   align-items: center;
   border: none;
   box-shadow: 0px 0px 10px;
-  background-color: rgba(250, 240, 230, 0.5);
+  /* background-color: rgba(250, 240, 230); */
+  background-color: #8a2be2;
   border-radius: 10px;
 `;
 
@@ -47,6 +50,7 @@ export const Title = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 36px;
   font-weight: bold;
+  background-color: transparent;
 `;
 
 export const WriterWrapper = styled.div`
@@ -61,14 +65,16 @@ export const Writer = styled.input`
   width: 486px;
   height: 52px;
   padding-left: 16px;
-  border: 1px solid #bdbdbd;
+  background-color: gray;
+  border: 1px solid #4b0082;
 `;
 
 export const Password = styled.input`
   width: 486px;
   height: 52px;
   padding-left: 16px;
-  border: 1px solid #bdbdbd;
+  background-color: gray;
+  border: 1px solid #4b0082;
 `;
 
 export const Label = styled.div`
@@ -85,7 +91,8 @@ export const Subject = styled.input`
   width: 996px;
   height: 52px;
   padding-left: 16px;
-  border: 1px solid #bdbdbd;
+  background-color: gray;
+  border: 1px solid #4b0082;
 `;
 
 export const Contents = styled.textarea`
@@ -93,7 +100,8 @@ export const Contents = styled.textarea`
   height: 480px;
   padding-left: 16px;
   padding: 14px;
-  border: 1px solid #bdbdbd;
+  background-color: gray;
+  border: 1px solid #4b0082;
 `;
 
 export const ZipcodeWrapper = styled.div`
@@ -105,14 +113,14 @@ export const Zipcode = styled.input`
   width: 77px;
   height: 52px;
   padding-left: 16px;
-  border: 1px solid #bdbdbd;
+  background-color: gray;
+  border: 1px solid #4b0082;
 `;
 
 export const SearchButton = styled.button`
   width: 124px;
   height: 52px;
   margin-left: 16px;
-  background-color: black;
   cursor: pointer;
   color: white;
 `;
@@ -122,6 +130,7 @@ export const Address = styled.input`
   height: 52px;
   margin-top: 16px;
   padding-left: 16px;
+  background-color: gray;
   border: 1px solid #4b0082;
 `;
 
@@ -129,6 +138,7 @@ export const Youtube = styled.input`
   width: 996px;
   height: 52px;
   padding-left: 16px;
+  background-color: gray;
   border: 1px solid #4b0082;
 `;
 
@@ -210,9 +220,11 @@ export const HeaderBox = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid #4b0082;
+  background-color: transparent;
 `;
 export const WriterInfoBox = styled.div`
   display: flex;
+  background-color: transparent;
 `;
 export const Thumb = styled.a`
   margin-right: 16px;
@@ -225,11 +237,14 @@ export const ImgIcon = styled.img`
   border-radius: 50%;
 `;
 
-export const ProfileBox = styled.div``;
+export const ProfileBox = styled.div`
+  background-color: transparent;
+`;
 
 export const ProfileWriter = styled.div`
   font-weight: 500;
   font-size: 24px;
+  background-color: transparent;
 `;
 
 export const ProfileCreatedTime = styled.div`
@@ -240,32 +255,38 @@ export const ProfileCreatedTime = styled.div`
   font-weight: 400;
   font-size: 16px;
   color: #828282;
+  background-color: transparent;
 `;
 
 export const HeaderTool = styled.div`
   display: flex;
   justify-content: space-between;
+  background-color: transparent;
 `;
 
 export const LinkTool = styled.img`
   margin-right: 20px;
   width: 20px;
   height: 20px;
+  background-color: transparent;
 `;
 
 export const LocationTool = styled.img`
   margin-right: 20px;
   width: 20px;
   height: 20px;
+  background-color: transparent;
 `;
 export const ContentsBox = styled.div`
   padding-top: 80px;
   width: 100%;
+  background-color: transparent;
 `;
 export const ContentsTitle = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  background-color: transparent;
 `;
 export const ContentsImgBox = styled.div`
   display: flex;
@@ -273,6 +294,7 @@ export const ContentsImgBox = styled.div`
   align-items: center;
   width: 100%;
   height: 56%;
+  background-color: transparent;
   /* border: 1px solid gray; */
 `;
 export const ContentsImg = styled.img``;
@@ -280,7 +302,11 @@ export const FetchContents = styled.div``;
 export const DetailContents = styled.p`
   font-weight: 400;
   font-size: 16px;
+  background-color: transparent;
 `;
 export const PlayerBox = styled.div`
   padding: 50px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
 `;

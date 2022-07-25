@@ -29,9 +29,7 @@ export default function Layout(props: ILayoutProps) {
                         height: "700px",
                         backgroundColor: "purple",
                     }}
-                >
-                    SideBar
-                </div>
+                ></div>
 
                 <div style={{ width: "70%" }}>{props.children}</div>
             </div>

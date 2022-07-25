@@ -25,7 +25,10 @@ export const ImgIcon = styled.img`
   height: 46px;
   border-radius: 50%;
 `;
-export const ProfileBox = styled.div``;
+export const ProfileBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 export const ProfileWriter = styled.div`
   font-weight: 500;
   font-size: 24px;
@@ -49,16 +52,51 @@ export const DeleteTool = styled.img`
   height: 20px;
 `;
 export const LikeTool = styled.div``;
-export const EditTool = styled.img`
-  width: 20px;
-  height: 20px;
+export const EditTool = styled.button`
+  background-color: transparent;
+  border: none;
 `;
 export const WriteBox = styled.div`
   display: flex;
 `;
-export const TextArea = styled.textarea``;
+export const TextArea = styled.textarea`
+  width: 900px;
+  border: none;
+  resize: none;
+  background-color: transparent;
+  border-bottom: 1px solid black;
+  &:focus {
+    outline: none;
+  }
+`;
+export const NonMemberWriter = styled.input``;
 export const NonMemberPassword = styled.input``;
-export const submitButton = styled.button``;
+export const submitButton = styled.button`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  &:hover {
+    animation: fade-bg 1s linear 0s infinite alternate;
+    -webkit-animation: fade-bg 1s linear 0s infinite alternate;
+    @-webkit-keyframes fade-bg {
+      0% {
+        background: #ccc;
+      }
+      100% {
+        background: #7fff00;
+      }
+    }
+
+    @keyframes fade-bg {
+      0% {
+        background: #ccc;
+      }
+      100% {
+        background: #7fff00;
+      }
+    }
+  }
+`;
 // 댓글 목록-----------
 
 export const CommentContents = styled.div`

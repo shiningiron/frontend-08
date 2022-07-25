@@ -49,7 +49,16 @@ export default function CreateBoardUI(props: ICreateBoardUIProps) {
       <B.InputWrapper>
         <B.Label>주소</B.Label>
         <B.ZipcodeWrapper>
-          <B.Zipcode placeholder="0000" value={props.zipcode} />
+          <B.Zipcode
+            placeholder="0000"
+            // value={props.zipcode}
+            value={
+              props.zipcode ||
+              props.data?.fetchBoard.boardAddress?.zipcode ||
+              ""
+            }
+            readOnly={!!props.data?.fetchBoard.boardAddress?.zipcode}
+          />
           <B.AddressSearchButton onClick={props.onToggleModal}>
             주소검색
           </B.AddressSearchButton>
@@ -64,10 +73,18 @@ export default function CreateBoardUI(props: ICreateBoardUIProps) {
             </B.AddressModal>
           )}
         </B.ZipcodeWrapper>
-        <B.Address value={props.address} />
+        <B.Address
+          value={
+            props.address || props.data?.fetchBoard.boardAddress?.address || ""
+          }
+          readOnly={!!props.data?.fetchBoard.boardAddress?.address}
+        />
         <B.Address
           placeholder="상세주소를 입력해주세요"
           onChange={props.onChangeAddressDetail}
+          defaultValue={
+            props.data?.fetchBoard.boardAddress?.addressDetail || ""
+          }
         />
       </B.InputWrapper>
       <B.InputWrapper>

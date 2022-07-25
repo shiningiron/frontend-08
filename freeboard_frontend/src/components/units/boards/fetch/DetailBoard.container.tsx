@@ -23,6 +23,7 @@ export default function DetailBoardContainer() {
 
   const onClickMoveToEdit = () => {
     router.push(`/freeboard/${router.query.newBoardId}/edit`);
+    console.log(data);
   };
   const onClickMoveToList = () => {
     router.push(`/freeboard`);

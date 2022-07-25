@@ -1,20 +1,12 @@
 import styled from "@emotion/styled";
-import { injectGlobal } from "@emotion/css";
-
-injectGlobal`
-    body {
-        padding: 10%;
-        /* background-color: black; */
-    }
-`;
 
 export const ListWrapper = styled.div`
   width: 1200px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   border: 1px solid #4b0082;
-  margin-left: 100px;
-  margin-top: 100px;
+  margin: 50px 50px 0px 50px;
 `;
 
 export const ListBox = styled.div`
@@ -36,7 +28,7 @@ export const Img = styled.img`
 export const ListInfo = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 20%;
+  width: 30%;
 `;
 export const Writer = styled.div`
   font-size: 20px;
@@ -50,4 +42,10 @@ export const NewBoardButton = styled.button`
   position: fixed;
   top: 95%;
   left: 95%;
+`;
+export const Footer = styled.div`
+  display: flex;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
 `;

@@ -1,14 +1,7 @@
-import { css } from "@emotion/react";
+import { css } from "@emotion/css";
 
 export const globalStyles = css`
-  * {
-    margin: 0;
-    box-sizing: border;
-    font-size: 15px;
-    font-family: "myfont";
-  }
-  @font-face {
-    font-family: "myfont";
-    src: url("/font/scifibit.ttf");
+  body {
+    background-color: darkblue;
   }
 `;

@@ -14,11 +14,15 @@ import { FETCH_COMMENT } from "../fetch/FetchComment.queries";
 export default function CommentContainer() {
   const router = useRouter();
   const [createComment] = useMutation(CREATE_COMMENT);
+  const [writer, setWriter] = useState("");
   const [contents, setContents] = useState("");
   const [password, setPassword] = useState("");
 
   const onChangeComments = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContents(event.target.value);
+  };
+  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>) => {
+    setWriter(event.target.value);
   };
   const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
@@ -37,7 +41,7 @@ export default function CommentContainer() {
       const commentVariables: ICommentVariables = {
         boardId: router.query.newBoardId as string,
         createBoardCommentInput: {
-          writer: data?.fetchBoard?.writer as string,
+          writer,
           password,
           contents,
           rating: 4.5,
@@ -57,13 +61,16 @@ export default function CommentContainer() {
     } catch (error) {
       console.log(error.message);
     }
+    setContents("");
   };
 
   return (
     <CommentUI
       onChangeComments={onChangeComments}
+      onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       replyButton={replyButton}
+      contents={contents}
       data={data}
     />
   );

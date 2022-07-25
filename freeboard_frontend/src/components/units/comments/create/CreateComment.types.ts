@@ -4,7 +4,9 @@ import { IQuery } from "../../../../commons/types/generated/types";
 export interface ICreateCommentUIProps {
   replyButton: () => void;
   onChangeComments: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
+  contents: string;
   data?: Pick<IQuery, "fetchBoard">;
 }
 

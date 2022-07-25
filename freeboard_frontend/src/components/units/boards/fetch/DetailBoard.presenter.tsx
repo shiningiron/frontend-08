@@ -34,11 +34,7 @@ export default function DetailBoardUI(props: IDetailBoardUIProps) {
         <B.ContentsImgBox>
           <B.ContentsImg src="/pizza.png" />
         </B.ContentsImgBox>
-        <B.FetchContents>
-          <B.DetailContents>
-            {props.data?.fetchBoard?.contents}
-          </B.DetailContents>
-        </B.FetchContents>
+        <B.DetailContents>{props.data?.fetchBoard?.contents}</B.DetailContents>
         <B.PlayerBox>
           <B.Player
             url={`${props.data?.fetchBoard.youtubeUrl}`}

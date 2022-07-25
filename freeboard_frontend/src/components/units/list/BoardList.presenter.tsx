@@ -1,7 +1,7 @@
 import * as Li from "../../../commons/styles/boardList.styles";
 import { IBoardListUIProps } from "./BoardList.types";
 import { getDate } from "../../../commons/libraries/utils";
-import Pagination from "../../commons/pasination/pasination";
+import Pagination from "../../commons/pasination/Pasination.container";
 
 export default function BoardListUI(props: IBoardListUIProps) {
   return (
@@ -22,7 +22,9 @@ export default function BoardListUI(props: IBoardListUIProps) {
           </Li.ListBox>
         ))}
       </Li.ListWrapper>
-      <Pagination data={props.data} refetch={props.refetch} />
+      <Li.Footer>
+        <Pagination data={props.data} refetch={props.refetch} />
+      </Li.Footer>
       <Li.NewBoardButton onClick={props.onClickNewBoard}>
         글쓰기
       </Li.NewBoardButton>

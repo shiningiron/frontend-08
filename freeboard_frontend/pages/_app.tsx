@@ -2,9 +2,11 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { Global } from "@emotion/react";
 import "antd/dist/antd.css";
+// import "../src/commons/styles/modalStyles.css";
 import { AppProps } from "next/app";
 import Layout from "../src/components/commons/layout";
-import { globalStyles } from "../src/commons/styles/globalStyles";
+// import { globalStyles } from "../src/commons/styles/globalStyles";
+import { resetStyles } from "../src/commons/styles/resetStyles";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const client = new ApolloClient({
@@ -14,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ApolloProvider client={client}>
-      <Global styles={globalStyles} />
+      <Global styles={resetStyles} />
       <Layout>
         <Component {...pageProps} />
       </Layout>

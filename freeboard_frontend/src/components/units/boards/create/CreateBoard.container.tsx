@@ -159,7 +159,6 @@ export default function CreateBoardContainer(props: ICreateBoardProps) {
     if (subject) updateBoardInput.title = subject;
     if (contents) updateBoardInput.contents = contents;
     if (youtubeUrl) updateBoardInput.youtubeUrl = youtubeUrl;
-
     try {
       const result = await updateBoard({
         variables: {

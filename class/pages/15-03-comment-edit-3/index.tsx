@@ -24,18 +24,18 @@ export default function StaticRoutedBoardPage() {
         IQueryFetchBoardsArgs
     >(FETCH_BOARDS);
 
-    const [myIndex, setMyIndex] = useState([
-        false, // index0
-        false, // index1
-        false, // index2
-        false, // index3
-        false,
-        false,
-        false,
-        false,
-        false,
-        false, // index9
-    ]);
+    // const [myIndex, setMyIndex] = useState([
+    //     false, // index0
+    //     false, // index1
+    //     false, // index2
+    //     false, // index3
+    //     false,
+    //     false,
+    //     false,
+    //     false,
+    //     false,
+    //     false, // index9
+    // ]);
 
     return (
         <>
