@@ -1,6 +1,5 @@
 import { getDate } from "../../../../commons/libraries/utils";
 import { ChangeEvent, useState } from "react";
-import { FcLike } from "react-icons/fc";
 import * as Cmt from "../styles/Comment.styles";
 import { useMutation } from "@apollo/client";
 import { UPDATE_COMMENT } from "./CommentEdit.queries";
@@ -10,12 +9,14 @@ import {
   IMutationUpdateBoardCommentArgs,
 } from "../../../../commons/types/generated/types";
 import DeleteCommentModal from "../delete/DeleteCommentModal";
+import EditStarRate from "../../../commons/EditstarRate";
 // import { FETCH_COMMENT } from "../fetch/FetchComment.queries";
 // import { useRouter } from "next/router";
 
 export default function CommentsItem(props: any) {
   const [password, setPassword] = useState("");
   const [contents, setContents] = useState("");
+  const [rating, setRating] = useState(0);
   const [isEdit, setIsEdit] = useState(false);
   // const [isDelete, setIsDelete] = useState(false);
   //   const router = useRouter();
@@ -45,7 +46,7 @@ export default function CommentsItem(props: any) {
           password,
           updateBoardCommentInput: {
             contents,
-            rating: 1,
+            rating,
           },
         },
         // refetchQueries: [
@@ -71,6 +72,7 @@ export default function CommentsItem(props: any) {
             </Cmt.Thumb>
             <Cmt.ProfileBox>
               <Cmt.ProfileWriter>{props.el.writer}</Cmt.ProfileWriter>
+              <EditStarRate rating={props.el.rating} isEdit={isEdit} />
               <Cmt.ProfileCreatedTime>
                 {getDate(props.el.createdAt)}
               </Cmt.ProfileCreatedTime>
@@ -79,9 +81,6 @@ export default function CommentsItem(props: any) {
           <Cmt.CommentContents>{props.el.contents}</Cmt.CommentContents>
           <Cmt.Tools>
             <DeleteCommentModal id={props.el._id} />
-            <Cmt.LikeTool>
-              <FcLike />
-            </Cmt.LikeTool>
             <Cmt.EditTool onClick={onClickEdit}>
               <img src="/ic_fluent_signature_regular_icon.png" />
             </Cmt.EditTool>
@@ -96,6 +95,7 @@ export default function CommentsItem(props: any) {
             </Cmt.Thumb>
             <Cmt.ProfileBox>
               <Cmt.ProfileWriter>{props.el.writer}</Cmt.ProfileWriter>
+              <EditStarRate isEdit={isEdit} setRating={setRating} />
               <Cmt.ProfileCreatedTime>
                 {getDate(props.el.createdAt)}
               </Cmt.ProfileCreatedTime>
@@ -111,9 +111,6 @@ export default function CommentsItem(props: any) {
               onClick={props.commentDeleteButton}
               src="/free-icon-font-trash.png"
             /> */}
-            <Cmt.LikeTool>
-              <FcLike />
-            </Cmt.LikeTool>
             <UpdateCommentModal
               id={props.el._id}
               setIsEdit={setIsEdit}

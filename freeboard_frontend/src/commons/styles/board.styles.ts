@@ -16,11 +16,18 @@ export const Player = styled(ReactPlayer)`
 // 주소찾기 모달
 export const AddressModal = styled(Modal)``;
 export const AddressSearchButton = styled(Button)`
-  /* padding: 5px;
+  padding: 0;
+  color: #fff;
+  border: 2px solid #6600cc;
+  border-radius: 5px;
+  background-color: #6600ff;
   width: 77px;
   height: 52px;
-  background-color: darkblue;
-  border: 1px solid #4b0082; */
+  &:hover {
+    background-color: #6600ff;
+    color: #fff;
+    border: 3px solid #7b68ee;
+  }
 `;
 
 export const DaumPostcodeLibrary = styled(DaumPostcodeEmbed)``;
@@ -40,10 +47,11 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   border: none;
-  box-shadow: 0px 0px 10px;
+  box-shadow: 1px 1px 13px;
   /* background-color: rgba(250, 240, 230); */
-  background-color: #8a2be2;
-  border-radius: 10px;
+  background-color: #000000;
+  border-radius: 100px;
+  color: #fff;
 `;
 
 export const Title = styled.div`
@@ -65,16 +73,18 @@ export const Writer = styled.input`
   width: 486px;
   height: 52px;
   padding-left: 16px;
-  background-color: gray;
-  border: 1px solid #4b0082;
+  background-color: #000033;
+  border: 1px solid #6600ff;
+  border-radius: 5px;
 `;
 
 export const Password = styled.input`
   width: 486px;
   height: 52px;
   padding-left: 16px;
-  background-color: gray;
-  border: 1px solid #4b0082;
+  background-color: #000033;
+  border: 1px solid #6600ff;
+  border-radius: 5px;
 `;
 
 export const Label = styled.div`
@@ -91,8 +101,9 @@ export const Subject = styled.input`
   width: 996px;
   height: 52px;
   padding-left: 16px;
-  background-color: gray;
-  border: 1px solid #4b0082;
+  background-color: #000033;
+  border: 1px solid #6600ff;
+  border-radius: 5px;
 `;
 
 export const Contents = styled.textarea`
@@ -100,8 +111,9 @@ export const Contents = styled.textarea`
   height: 480px;
   padding-left: 16px;
   padding: 14px;
-  background-color: gray;
-  border: 1px solid #4b0082;
+  background-color: #000033;
+  border: 1px solid #6600ff;
+  border-radius: 5px;
 `;
 
 export const ZipcodeWrapper = styled.div`
@@ -113,8 +125,10 @@ export const Zipcode = styled.input`
   width: 77px;
   height: 52px;
   padding-left: 16px;
-  background-color: gray;
-  border: 1px solid #4b0082;
+  margin-right: 5px;
+  background-color: #000033;
+  border: 1px solid #6600ff;
+  border-radius: 5px;
 `;
 
 export const SearchButton = styled.button`
@@ -122,7 +136,7 @@ export const SearchButton = styled.button`
   height: 52px;
   margin-left: 16px;
   cursor: pointer;
-  color: white;
+  color: #000033;
 `;
 
 export const Address = styled.input`
@@ -130,16 +144,18 @@ export const Address = styled.input`
   height: 52px;
   margin-top: 16px;
   padding-left: 16px;
-  background-color: gray;
-  border: 1px solid #4b0082;
+  background-color: #000033;
+  border: 1px solid #6600ff;
+  border-radius: 5px;
 `;
 
 export const Youtube = styled.input`
   width: 996px;
   height: 52px;
   padding-left: 16px;
-  background-color: gray;
-  border: 1px solid #4b0082;
+  background-color: #000033;
+  border: 1px solid #6600ff;
+  border-radius: 5px;
 `;
 
 export const ImageWrapper = styled.div`
@@ -155,6 +171,7 @@ export const UploadButton = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
 `;
 
 export const OptionWrapper = styled.div`
@@ -202,7 +219,7 @@ export const SubmitButton = styled.button`
   margin-left: 12px;
   margin-right: 12px;
   cursor: pointer;
-  background-color: rgba(255, 20, 147, 0.4);
+  background-color: #6600ff;
 `;
 
 export const ErrorMessage = styled.div`
@@ -219,7 +236,7 @@ export const HeaderBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid #4b0082;
+  border-bottom: 2px solid #6600ff;
   background-color: transparent;
 `;
 export const WriterInfoBox = styled.div`
@@ -299,7 +316,11 @@ export const ContentsImgBox = styled.div`
 `;
 export const ContentsImg = styled.img``;
 export const FetchContents = styled.div``;
-export const DetailContents = styled.p`
+export const DetailContents = styled.pre`
+  padding-top: 50px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  /* overflow: auto; */
   font-weight: 400;
   font-size: 16px;
   background-color: transparent;

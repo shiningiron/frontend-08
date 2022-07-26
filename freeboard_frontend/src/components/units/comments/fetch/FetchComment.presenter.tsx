@@ -6,11 +6,7 @@ export default function FetchCommentUI(props: IFetchCommentUIProps) {
   return (
     <>
       {props.data?.fetchBoardComments.map((el) => (
-        <CommentsItem
-          key={el._id}
-          el={el}
-          commentDeleteButton={props.commentDeleteButton}
-        />
+        <CommentsItem key={el._id} el={el} />
       ))}
     </>
   );

@@ -2,6 +2,7 @@ import * as Cmt from "../styles/Comment.styles";
 import { getDate } from "../../../../commons/libraries/utils";
 import { ICreateCommentUIProps } from "./CreateComment.types";
 import CommentModal from "../../../commons/createCommentModal/CommentModal.container";
+import StarRate from "../../../commons/starRate";
 
 export default function CommentUI(props: ICreateCommentUIProps) {
   return (
@@ -11,8 +12,7 @@ export default function CommentUI(props: ICreateCommentUIProps) {
           <Cmt.ImgIcon src="/purple.jpeg" />
         </Cmt.Thumb>
         <Cmt.ProfileBox>
-          {/* <Cmt.NonMemberWriter placeholder="작성자" />
-          <Cmt.NonMemberPassword placeholder="password" /> */}
+          <StarRate setRating={props.setRating} />
           <Cmt.ProfileCreatedTime>
             {getDate(props.data?.fetchBoard?.createdAt)}
           </Cmt.ProfileCreatedTime>

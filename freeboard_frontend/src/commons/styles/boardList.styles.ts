@@ -5,8 +5,10 @@ export const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #4b0082;
+  border: 1px solid #6600ff;
   margin: 50px 50px 0px 50px;
+  /* color: #fff; */
+  color: #d8bfd8;
 `;
 
 export const ListBox = styled.div`
@@ -16,7 +18,7 @@ export const ListBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #4b0082;
+  border-top: 1px solid #6600ff;
   font-size: 25px;
 `;
 export const Title = styled.div`

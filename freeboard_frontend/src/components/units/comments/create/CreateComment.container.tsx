@@ -3,7 +3,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { CREATE_COMMENT } from "./CreateComment.queries";
 import { FETCH_BOARD } from "../../boards/fetch/DetailBoard.queries";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, MouseEvent, useState } from "react";
 import { ICommentVariables } from "./CreateComment.types";
 import {
   IQuery,
@@ -17,6 +17,7 @@ export default function CommentContainer() {
   const [writer, setWriter] = useState("");
   const [contents, setContents] = useState("");
   const [password, setPassword] = useState("");
+  const [rating, setRating] = useState(0);
 
   const onChangeComments = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContents(event.target.value);
@@ -27,6 +28,9 @@ export default function CommentContainer() {
   const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
+  // const onChangeRating = (event) => {
+  //   setRating(event.target.value);
+  // };
   const { data } = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(
     FETCH_BOARD,
     {
@@ -44,7 +48,7 @@ export default function CommentContainer() {
           writer,
           password,
           contents,
-          rating: 4.5,
+          rating,
         },
       };
 
@@ -69,6 +73,7 @@ export default function CommentContainer() {
       onChangeComments={onChangeComments}
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
+      setRating={setRating}
       replyButton={replyButton}
       contents={contents}
       data={data}

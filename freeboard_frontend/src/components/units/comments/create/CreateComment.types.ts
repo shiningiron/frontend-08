@@ -6,7 +6,10 @@ export interface ICreateCommentUIProps {
   onChangeComments: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
+  // onChangeRating: () => void;
+  setRating: any;
   contents: string;
+  // rating: number;
   data?: Pick<IQuery, "fetchBoard">;
 }
 
