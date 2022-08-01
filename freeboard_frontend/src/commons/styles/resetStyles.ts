@@ -19,6 +19,6 @@ export const resetStyles = css`
 
   @font-face {
     font-family: "myfont";
-    src: url("/font/scifibit.ttf");
+    src: url("/font/Noto_Sans_KR") format("ttf");
   }
 `;

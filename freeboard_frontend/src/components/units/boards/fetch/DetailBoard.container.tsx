@@ -1,9 +1,13 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { FETCH_BOARD } from "./DetailBoard.queries";
+import { FETCH_BOARD, LIKE_BOARD, DISLIKE_BOARD } from "./DetailBoard.queries";
 import { useRouter } from "next/router";
 import DetailBoardUI from "./DetailBoard.presenter";
 import { DELETE_BOARD } from "../delete/DeleteBoard.queries";
 import {
+  IMutation,
+  IMutationDeleteBoardArgs,
+  IMutationDislikeBoardArgs,
+  IMutationLikeBoardArgs,
   IQuery,
   IQueryFetchBoardArgs,
 } from "../../../../commons/types/generated/types";
@@ -11,7 +15,18 @@ import { useState } from "react";
 
 export default function DetailBoardContainer() {
   const router = useRouter();
-  const [deleteBoard] = useMutation(DELETE_BOARD);
+  const [deleteBoard] = useMutation<
+    Pick<IMutation, "deleteBoard">,
+    IMutationDeleteBoardArgs
+  >(DELETE_BOARD);
+  const [likeBoard] = useMutation<
+    Pick<IMutation, "likeBoard">,
+    IMutationLikeBoardArgs
+  >(LIKE_BOARD);
+  const [dislikeBoard] = useMutation<
+    Pick<IMutation, "dislikeBoard">,
+    IMutationDislikeBoardArgs
+  >(DISLIKE_BOARD);
   const [boardAddress, setBoardAddress] = useState("");
   const { data } = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(
     FETCH_BOARD,
@@ -45,6 +60,40 @@ export default function DetailBoardContainer() {
     );
     if (boardAddress) setBoardAddress("");
   };
+
+  const onClickLike = async () => {
+    try {
+      const result = await likeBoard({
+        variables: { boardId: router.query.newBoardId as string },
+        refetchQueries: [
+          {
+            query: FETCH_BOARD,
+            variables: { boardId: router.query.newBoardId as string },
+          },
+        ],
+      });
+      console.log(result);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  const onClickDisLike = async () => {
+    try {
+      const result = await dislikeBoard({
+        variables: { boardId: router.query.newBoardId as string },
+        refetchQueries: [
+          {
+            query: FETCH_BOARD,
+            variables: { boardId: router.query.newBoardId as string },
+          },
+        ],
+      });
+      console.log(result);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <DetailBoardUI
       data={data}
@@ -53,6 +102,8 @@ export default function DetailBoardContainer() {
       onClickLocation={onClickLocation}
       onClickMoveToList={onClickMoveToList}
       onClickDelete={onClickDelete}
+      onClickLike={onClickLike}
+      onClickDisLike={onClickDisLike}
     />
   );
 }

@@ -9,7 +9,7 @@ export default function CommentUI(props: ICreateCommentUIProps) {
     <Cmt.Box>
       <Cmt.WriterInfoBox>
         <Cmt.Thumb>
-          <Cmt.ImgIcon src="/purple.jpeg" />
+          <Cmt.ImgIcon src="/images/purple.jpeg" />
         </Cmt.Thumb>
         <Cmt.ProfileBox>
           <StarRate setRating={props.setRating} />

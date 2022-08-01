@@ -7,4 +7,6 @@ export interface IDetailBoardUIProps {
   onClickLocation: () => void;
   onClickMoveToList: () => void;
   onClickDelete: () => void;
+  onClickLike: () => void;
+  onClickDisLike: () => void;
 }

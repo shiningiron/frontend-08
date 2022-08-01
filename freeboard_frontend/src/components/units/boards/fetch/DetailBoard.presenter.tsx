@@ -9,7 +9,7 @@ export default function DetailBoardUI(props: IDetailBoardUIProps) {
       <B.HeaderBox>
         <B.WriterInfoBox>
           <B.Thumb>
-            <B.ImgIcon src="/purple.jpeg" />
+            <B.ImgIcon src="/images/purple.jpeg" />
           </B.Thumb>
           <B.ProfileBox>
             <B.ProfileWriter>{props.data?.fetchBoard?.writer}</B.ProfileWriter>
@@ -19,9 +19,9 @@ export default function DetailBoardUI(props: IDetailBoardUIProps) {
           </B.ProfileBox>
         </B.WriterInfoBox>
         <B.HeaderTool>
-          <B.LinkTool src="/free-icon-font-link-3917422.png" />
+          <B.LinkTool src="/images/free-icon-font-link-3917422.png" />
           <B.LocationTool
-            src="/free-icon-font-marker.png"
+            src="/images/free-icon-font-marker.png"
             onClick={props.onClickLocation}
           />
           {props.boardAddress}
@@ -32,7 +32,7 @@ export default function DetailBoardUI(props: IDetailBoardUIProps) {
           <B.Title>{props.data?.fetchBoard?.title}</B.Title>
         </B.ContentsTitle>
         <B.ContentsImgBox>
-          <B.ContentsImg src="/pizza.png" />
+          <B.ContentsImg src="/images/pizza.png" />
         </B.ContentsImgBox>
         <B.DetailContents>{props.data?.fetchBoard?.contents}</B.DetailContents>
         <B.PlayerBox>
@@ -45,11 +45,29 @@ export default function DetailBoardUI(props: IDetailBoardUIProps) {
           />
         </B.PlayerBox>
       </B.ContentsBox>
-      <B.SubmitButton onClick={props.onClickMoveToEdit}>
-        수정하기
-      </B.SubmitButton>
-      <B.SubmitButton onClick={props.onClickMoveToList}>목록</B.SubmitButton>
-      <B.SubmitButton onClick={props.onClickDelete}>게시글 삭제</B.SubmitButton>
+      <B.LikeDislikeBox>
+        <B.LikeDislikeBack onClick={props.onClickLike}>
+          <B.LikeRocket />
+          <B.LikeDislikeCount>
+            {props.data?.fetchBoard.likeCount}
+          </B.LikeDislikeCount>
+        </B.LikeDislikeBack>
+        <B.LikeDislikeBack onClick={props.onClickDisLike}>
+          <B.DislikeRocket />
+          <B.LikeDislikeCount>
+            {props.data?.fetchBoard.dislikeCount}
+          </B.LikeDislikeCount>
+        </B.LikeDislikeBack>
+      </B.LikeDislikeBox>
+      <B.ButtonBox>
+        <B.SubmitButton onClick={props.onClickMoveToEdit}>
+          수정하기
+        </B.SubmitButton>
+        <B.SubmitButton onClick={props.onClickMoveToList}>목록</B.SubmitButton>
+        <B.SubmitButton onClick={props.onClickDelete}>
+          게시글 삭제
+        </B.SubmitButton>
+      </B.ButtonBox>
     </B.Wrapper>
   );
 }

@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { BsTrash2 } from "react-icons/bs";
+import { FiTool } from "react-icons/fi";
 
 export const Box = styled.div`
   /* margin-top: 10%; */
@@ -47,15 +49,18 @@ export const Tools = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-export const DeleteTool = styled.img`
+export const DeleteTool = styled(BsTrash2)`
   margin-right: 20px;
   width: 20px;
   height: 20px;
 `;
-export const LikeTool = styled.div``;
-export const EditTool = styled.button`
-  background-color: transparent;
-  border: none;
+export const EditTool = styled(FiTool)`
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  &:hover {
+    color: #ffd700;
+  }
 `;
 export const WriteBox = styled.div`
   display: flex;

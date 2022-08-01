@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import ReactPlayer from "react-player";
 import { Modal, Button } from "antd";
 import DaumPostcodeEmbed from "react-daum-postcode";
+import { IoMdRocket } from "react-icons/io";
 
 // 라이브러리//----------------// 라이브러리//---------------------------// 라이브러리//----------
 
@@ -45,6 +46,7 @@ export const Wrapper = styled.div`
   padding-right: 102px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   border: none;
   box-shadow: 1px 1px 13px;
@@ -330,4 +332,44 @@ export const PlayerBox = styled.div`
   display: flex;
   justify-content: center;
   background-color: transparent;
+`;
+export const ButtonBox = styled.div`
+  margin: 20px 0px;
+  display: flex;
+`;
+export const LikeDislikeBox = styled.div`
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const LikeDislikeBack = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+`;
+export const LikeDislikeCount = styled.div`
+  padding-top: 10px;
+  color: #ffffff;
+  font-size: 24px;
+`;
+export const LikeRocket = styled(IoMdRocket)`
+  width: 70px;
+  height: 70px;
+  color: #6600ff;
+  &:active {
+    color: #00ff00;
+  }
+`;
+export const DislikeRocket = styled(IoMdRocket)`
+  width: 70px;
+  height: 70px;
+  transform: rotate(180deg);
+  &:active {
+    color: #dc143c;
+  }
 `;

@@ -68,7 +68,7 @@ export default function CommentsItem(props: any) {
         <Cmt.Box key={props.el._id}>
           <Cmt.WriterInfoBox>
             <Cmt.Thumb>
-              <Cmt.ImgIcon src="/purple.jpeg" />
+              <Cmt.ImgIcon src="/images/purple.jpeg" />
             </Cmt.Thumb>
             <Cmt.ProfileBox>
               <Cmt.ProfileWriter>{props.el.writer}</Cmt.ProfileWriter>
@@ -81,9 +81,7 @@ export default function CommentsItem(props: any) {
           <Cmt.CommentContents>{props.el.contents}</Cmt.CommentContents>
           <Cmt.Tools>
             <DeleteCommentModal id={props.el._id} />
-            <Cmt.EditTool onClick={onClickEdit}>
-              <img src="/ic_fluent_signature_regular_icon.png" />
-            </Cmt.EditTool>
+            <Cmt.EditTool onClick={onClickEdit} />
           </Cmt.Tools>
         </Cmt.Box>
       )}
@@ -91,7 +89,7 @@ export default function CommentsItem(props: any) {
         <Cmt.Box key={props.el._id}>
           <Cmt.WriterInfoBox>
             <Cmt.Thumb>
-              <Cmt.ImgIcon src="/purple.jpeg" />
+              <Cmt.ImgIcon src="/images/purple.jpeg" />
             </Cmt.Thumb>
             <Cmt.ProfileBox>
               <Cmt.ProfileWriter>{props.el.writer}</Cmt.ProfileWriter>

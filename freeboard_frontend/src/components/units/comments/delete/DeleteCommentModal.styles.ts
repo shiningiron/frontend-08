@@ -1,5 +1,5 @@
 import { Modal, Button } from "antd";
-
+import { BsTrash2 } from "react-icons/bs";
 import styled from "@emotion/styled";
 
 export const ModalButton = styled.button`
@@ -32,7 +32,12 @@ export const ModalButton = styled.button`
   }
 `;
 export const ReplModal = styled(Modal)``;
-export const IconButton = styled.button`
-  background-color: transparent;
-  border: none;
+export const IconButton = styled(BsTrash2)`
+  margin-right: 30px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  &:hover {
+    color: #7fff00;
+  }
 `;
