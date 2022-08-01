@@ -5,8 +5,10 @@ import {
     IQueryFetchBoardsCountArgs,
 } from "../../../src/commons/types/generated/types";
 import styled from "@emotion/styled";
-import { MouseEvent, useState } from "react";
+import { ChangeEvent, MouseEvent, useState } from "react";
 import { css } from "@emotion/react";
+import _ from "lodash";
+import { v4 as uuidv4 } from "uuid";
 
 export const spanStyle = css``;
 
@@ -16,8 +18,8 @@ const TD = styled.td`
 `;
 
 const FETCH_BOARDS = gql`
-    query fetchBoards($page: Int) {
-        fetchBoards(page: $page) {
+    query fetchBoards($search: String, $page: Int) {
+        fetchBoards(search: $search, page: $page) {
             _id
             writer
             title
@@ -33,6 +35,10 @@ const FETCH_BOARDS_COUNT = gql`
 `;
 
 export default function Pagination() {
+    const [startPage, setStartPage] = useState(1);
+    const [currentId, setCurrentId] = useState("1");
+    const [keyword, setKeyword] = useState("");
+
     const { data, refetch } = useQuery<
         Pick<IQuery, "fetchBoards">,
         IQueryFetchBoardsArgs
@@ -47,8 +53,6 @@ export default function Pagination() {
         ? Math.ceil(dataBoardsCount?.fetchBoardsCount / 10)
         : 1;
 
-    const [startPage, setStartPage] = useState(1);
-    const [currentId, setCurrentId] = useState("1");
     const onClickPage = (event: MouseEvent<HTMLSpanElement>) => {
         if (!(event?.target instanceof HTMLSpanElement)) return;
         refetch({ page: Number(event.target.id) });
@@ -71,8 +75,17 @@ export default function Pagination() {
         }
     };
 
+    const getDebounce = _.debounce((searchKeyword) => {
+        refetch({ search: searchKeyword, page: 1 });
+        setKeyword(searchKeyword);
+    }, 1000);
+    const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+        getDebounce(event.target.value);
+    };
+
     return (
         <>
+            검색: <input type="text" onChange={onChangeSearch} />
             <div
                 style={{
                     padding: "10px",
@@ -92,19 +105,32 @@ export default function Pagination() {
                                 padding: "10px",
                             }}
                         >
-                            <th>ID</th>
                             <th>작성자</th>
                             <th>제목</th>
-                            <th>내용</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data?.fetchBoards.map((el) => (
-                            <tr key={el._id}>
-                                <TD>{el._id}</TD>
+                            <tr key={uuidv4()}>
                                 <TD>{el.writer}</TD>
-                                <TD>{el.title}</TD>
-                                <TD>{el.contents}</TD>
+                                <TD>
+                                    {el.title
+                                        .replaceAll(keyword, `^&*${keyword}^&*`)
+                                        .split("^&*")
+                                        .map((el) => (
+                                            <span
+                                                key={uuidv4()}
+                                                style={{
+                                                    color:
+                                                        keyword === el
+                                                            ? "red"
+                                                            : "black",
+                                                }}
+                                            >
+                                                {el}
+                                            </span>
+                                        ))}
+                                </TD>
                             </tr>
                         ))}
                     </tbody>

@@ -24,10 +24,10 @@ const TD = styled.td`
 const Wrapper = styled.div`
     height: 500px;
     overflow: scroll;
-    -ms-overflow-style: none;
+    /* -ms-overflow-style: none;
     &::-webkit-scrollbar {
         display: none;
-    }
+    } */
 `;
 
 export default function StaticRoutedPage() {
