@@ -10,6 +10,7 @@ export interface ICreateBoardUIProps {
   onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onChangeYoutubeUrl: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeImageUrls: (imageUrl: string, index: number) => void;
   onCompletePostcode: (postData: any) => void;
   onToggleModal: () => void;
   isModalVisible: boolean;
@@ -21,6 +22,7 @@ export interface ICreateBoardUIProps {
   // addressDetail: string;
   address: string;
   zipcode: string;
+  imageUrls: string[];
   data?: Pick<IQuery, "fetchBoard">;
 }
 
@@ -29,6 +31,7 @@ export interface IMyVariables {
     title: string;
     contents: string;
     youtubeUrl: string;
+    images?: string[];
   };
 }
 

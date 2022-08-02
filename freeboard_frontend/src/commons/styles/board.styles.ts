@@ -56,6 +56,10 @@ export const Wrapper = styled.div`
   color: #fff;
 `;
 
+export const RowBox = styled.div`
+  display: flex;
+`;
+
 export const Title = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 36px;
@@ -165,7 +169,18 @@ export const ImageWrapper = styled.div`
   padding-top: 40px;
 `;
 
-export const UploadButton = styled.button`
+export const UploadButton = styled.div`
+  width: 78px;
+  height: 78px;
+  background-color: #bdbdbd;
+  margin-right: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+`;
+
+export const UploadPreview = styled.img`
   width: 78px;
   height: 78px;
   background-color: #bdbdbd;
@@ -309,14 +324,17 @@ export const ContentsTitle = styled.div`
 `;
 export const ContentsImgBox = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 56%;
   background-color: transparent;
   /* border: 1px solid gray; */
 `;
-export const ContentsImg = styled.img``;
+export const ContentsImg = styled.img`
+  width: 320px;
+  height: 180px;
+`;
 export const FetchContents = styled.div``;
 export const DetailContents = styled.pre`
   padding-top: 50px;
@@ -324,7 +342,7 @@ export const DetailContents = styled.pre`
   word-break: break-all;
   /* overflow: auto; */
   font-weight: 400;
-  font-size: 16px;
+  font-size: 30px;
   background-color: transparent;
 `;
 export const PlayerBox = styled.div`

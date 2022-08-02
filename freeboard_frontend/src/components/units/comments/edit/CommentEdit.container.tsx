@@ -1,6 +1,6 @@
 import { getDate } from "../../../../commons/libraries/utils";
 import { ChangeEvent, useState } from "react";
-import * as Cmt from "../styles/Comment.styles";
+import * as Cmt from "../../../../commons/styles/Comment.styles";
 import { useMutation } from "@apollo/client";
 import { UPDATE_COMMENT } from "./CommentEdit.queries";
 import UpdateCommentModal from "../../../commons/updateCommentModal/UpdateCommentModal.container";

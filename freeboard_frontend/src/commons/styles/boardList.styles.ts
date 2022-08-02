@@ -25,6 +25,8 @@ export const Title = styled.div`
   margin-right: 50px;
 `;
 export const Img = styled.img`
+  width: 50px;
+  height: 50px;
   margin-right: 50px;
 `;
 export const ListInfo = styled.div`

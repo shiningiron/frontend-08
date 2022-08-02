@@ -13,7 +13,14 @@ export default function BoardListUI(props: IBoardListUIProps) {
             id={el._id}
             onClick={props.onClickMoveToBoard}
           >
-            <Li.Img src={`${el.images}`} />
+            {/* <Li.Img src={`https://storage.googleapis.com/${el.images[0]}`} /> */}
+            {el?.images?.[0] ? (
+              <Li.Img src={`https://storage.googleapis.com/${el.images[0]}`} />
+            ) : (
+              <div
+                style={{ width: "50px", height: "50px", marginRight: "50px" }}
+              ></div>
+            )}
             <Li.Title id={el._id}>{el.title}</Li.Title>
             <Li.ListInfo id={el._id}>
               <Li.Writer id={el._id}>{el.writer}</Li.Writer>

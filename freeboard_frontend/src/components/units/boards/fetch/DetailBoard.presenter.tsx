@@ -32,7 +32,14 @@ export default function DetailBoardUI(props: IDetailBoardUIProps) {
           <B.Title>{props.data?.fetchBoard?.title}</B.Title>
         </B.ContentsTitle>
         <B.ContentsImgBox>
-          <B.ContentsImg src="/images/pizza.png" />
+          {props.data?.fetchBoard.images
+            ?.filter((el: string) => el !== "")
+            .map((el: string) => (
+              <B.ContentsImg
+                key={el}
+                src={`https://storage.googleapis.com/${el}`}
+              />
+            ))}
         </B.ContentsImgBox>
         <B.DetailContents>{props.data?.fetchBoard?.contents}</B.DetailContents>
         <B.PlayerBox>

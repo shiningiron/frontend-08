@@ -9,6 +9,7 @@ import "antd/dist/antd.css";
 import { AppProps } from "next/app";
 import Layout from "../src/components/commons/layout";
 import { globalStyles } from "../src/commons/styles/globalStyles";
+import { RecoilRoot } from "recoil";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -37,15 +38,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     const client = new ApolloClient({
         link: ApolloLink.from([uploadLink]),
         cache: new InMemoryCache(),
+        connectToDevTools: true,
     });
 
     return (
-        <ApolloProvider client={client}>
-            <Global styles={globalStyles} />
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
-        </ApolloProvider>
+        <RecoilRoot>
+            <ApolloProvider client={client}>
+                <Global styles={globalStyles} />
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </ApolloProvider>
+        </RecoilRoot>
     );
 }
 

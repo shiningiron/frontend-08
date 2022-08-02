@@ -1,4 +1,4 @@
-import * as Cmt from "../styles/Comment.styles";
+import * as Cmt from "../../../../commons/styles/Comment.styles";
 import { getDate } from "../../../../commons/libraries/utils";
 import { ICreateCommentUIProps } from "./CreateComment.types";
 import CommentModal from "../../../commons/createCommentModal/CommentModal.container";

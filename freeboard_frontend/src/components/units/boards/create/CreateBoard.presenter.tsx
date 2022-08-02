@@ -1,5 +1,7 @@
 import * as B from "../../../../commons/styles/board.styles";
 import { ICreateBoardUIProps } from "./CreateBoard.types";
+import { v4 as uuidv4 } from "uuid";
+import UploadImageContainer from "../../../commons/uploadImage/UploadImage.container";
 
 export default function CreateBoardUI(props: ICreateBoardUIProps) {
   return (
@@ -97,9 +99,16 @@ export default function CreateBoardUI(props: ICreateBoardUIProps) {
       </B.InputWrapper>
       <B.ImageWrapper>
         <B.Label>사진첨부</B.Label>
-        <B.UploadButton>+</B.UploadButton>
-        <B.UploadButton>+</B.UploadButton>
-        <B.UploadButton>+</B.UploadButton>
+        <B.RowBox>
+          {props.imageUrls.map((el, index) => (
+            <UploadImageContainer
+              key={uuidv4()}
+              index={index}
+              imageUrl={el}
+              onChangeImageUrls={props.onChangeImageUrls}
+            />
+          ))}
+        </B.RowBox>
       </B.ImageWrapper>
       <B.OptionWrapper>
         <B.Label>메인설정</B.Label>

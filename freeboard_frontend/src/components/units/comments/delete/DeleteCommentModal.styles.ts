@@ -1,4 +1,4 @@
-import { Modal, Button } from "antd";
+import { Modal } from "antd";
 import { BsTrash2 } from "react-icons/bs";
 import styled from "@emotion/styled";
 

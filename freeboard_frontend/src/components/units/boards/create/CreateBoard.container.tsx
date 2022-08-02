@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_BOARD, UPDATE_BOARD } from "./CreateBoard.queries";
 import { useRouter } from "next/router";
@@ -10,6 +10,7 @@ import {
   IUpdateBoardInput,
 } from "../../../../commons/types/generated/types";
 import { ICreateBoardProps } from "./CreateBoard.types";
+import { Modal } from "antd";
 
 export default function CreateBoardContainer(props: ICreateBoardProps) {
   const [writer, setWriter] = useState("");
@@ -24,6 +25,7 @@ export default function CreateBoardContainer(props: ICreateBoardProps) {
   const [zipcode, setZipcode] = useState("");
   const [address, setAddress] = useState("");
   const [addressDetail, setAddressDetail] = useState("");
+  const [imageUrls, setImageUrls] = useState(["", "", ""]);
   const router = useRouter();
   const [createBoard] = useMutation<
     Pick<IMutation, "createBoard">,
@@ -133,6 +135,7 @@ export default function CreateBoardContainer(props: ICreateBoardProps) {
                 address,
                 addressDetail,
               },
+              images: [...imageUrls],
             },
           },
         });
@@ -146,19 +149,24 @@ export default function CreateBoardContainer(props: ICreateBoardProps) {
   };
 
   const onClickUpdate = async () => {
-    if (!subject && !contents) {
+    const currentFiles = JSON.stringify(imageUrls);
+    const defaultFiles = JSON.stringify(props.data?.fetchBoard.images);
+    const isChangedFiles = currentFiles !== defaultFiles;
+
+    if (!subject && !contents && !youtubeUrl && !isChangedFiles) {
       alert("수정한 내용이 없습니다.");
       return;
     }
 
     if (!password) {
-      alert("비밀번호를 입력해주세요.");
+      Modal.error({ content: "비밀번호를 입력해주세요." });
       return;
     }
     const updateBoardInput: IUpdateBoardInput = {};
     if (subject) updateBoardInput.title = subject;
     if (contents) updateBoardInput.contents = contents;
     if (youtubeUrl) updateBoardInput.youtubeUrl = youtubeUrl;
+    if (isChangedFiles) updateBoardInput.images = imageUrls;
     try {
       const result = await updateBoard({
         variables: {
@@ -179,6 +187,18 @@ export default function CreateBoardContainer(props: ICreateBoardProps) {
     }
   };
 
+  const onChangeImageUrls = (imageUrl: string, index: number) => {
+    const newImageUrls = [...imageUrls];
+    newImageUrls[index] = imageUrl;
+    setImageUrls(newImageUrls);
+  };
+
+  useEffect(() => {
+    if (props.data?.fetchBoard.images?.length) {
+      setImageUrls([...props.data?.fetchBoard.images]);
+    }
+  }, [props.data]);
+
   return (
     <CreateBoardUI
       onChangeWriter={onChangeWriter}
@@ -187,6 +207,7 @@ export default function CreateBoardContainer(props: ICreateBoardProps) {
       onChangeContents={onChangeContents}
       onChangeYoutubeUrl={onChangeYoutubeUrl}
       onClickSubmitButton={onClickSubmitButton}
+      onChangeImageUrls={onChangeImageUrls}
       onClickUpdate={onClickUpdate}
       onCompletePostcode={onCompletePostcode}
       onToggleModal={onToggleModal}
@@ -196,6 +217,7 @@ export default function CreateBoardContainer(props: ICreateBoardProps) {
       passwordError={passwordError}
       subjectError={subjectError}
       contentsError={contentsError}
+      imageUrls={imageUrls}
       isEdit={props.isEdit}
       zipcode={zipcode}
       address={address}
