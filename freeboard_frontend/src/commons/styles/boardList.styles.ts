@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { ITextTokenProps } from "../../components/commons/pagination/Pagination.types";
 
 export const ListWrapper = styled.div`
   width: 1200px;
@@ -37,6 +38,9 @@ export const ListInfo = styled.div`
 export const Writer = styled.div`
   font-size: 20px;
   text-align: end;
+`;
+export const TextToken = styled.span`
+  color: ${(props: ITextTokenProps) => (props.isMatched ? "#0ffe" : "white")};
 `;
 export const BoardDate = styled.div`
   font-size: 20px;

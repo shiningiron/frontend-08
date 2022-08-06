@@ -50,6 +50,15 @@ export default function LoginPage() {
         router.push("/22-02-login-success");
     };
 
+    // const onClickButton = () => {
+    //     const result = document.cookie
+    //     const result = localStorage.getItem("school")
+    //     const result = sessionStorage.getItem("age")
+
+    //     localStorage.setItem("writer", "영희")
+    //     sessionStorage.setItem("writer", "훈이")
+    // }
+
     return (
         <>
             이메일: <input type="text" onChange={onChangeEmail} />

@@ -1,34 +1,14 @@
-import { gql, useQuery } from "@apollo/client";
 import { MouseEvent, useState } from "react";
-import {
-  IQuery,
-  IQueryFetchBoardsCountArgs,
-} from "../../../commons/types/generated/types";
-import { IPaginationProps } from "../pasination/pasination.types";
-import PasinationUI from "./Pasination.presenter";
-
-const FETCH_BOARDS_COUNT = gql`
-  query fetchBoardsCount {
-    fetchBoardsCount
-  }
-`;
+import { IPaginationProps } from "./Pagination.types";
+import PaginationUI from "./Pagination.presenter";
 
 export default function Pagination(props: IPaginationProps) {
-  // 게시글 개수 요청
-  const { data: dataBoardsCount } = useQuery<
-    Pick<IQuery, "fetchBoardsCount">,
-    IQueryFetchBoardsCountArgs
-  >(FETCH_BOARDS_COUNT);
-  // ----------------------------------------------------------
-
-  // lastPage 변수 선언, 게시글 개수 데이터값 있으면 개수 x에 10 나누고 올림해서 lastPage에 할당 데이터 없으면 1할당  ex) 153 개 --> 16 page
-  const lastPage = dataBoardsCount
-    ? Math.ceil(dataBoardsCount?.fetchBoardsCount / 10)
-    : 1;
-  // ----------------------------------------------------------
-
   const [startPage, setStartPage] = useState(1);
   const [currentId, setCurrentId] = useState(1);
+
+  // lastPage 변수 선언, 게시글 개수 데이터값 있으면 개수 x에 10 나누고 올림해서 lastPage에 할당 데이터 없으면 1할당  ex) 153 개 --> 16 page
+  const lastPage = props.count ? Math.ceil(props.count / 10) : 1;
+  // ----------------------------------------------------------
 
   // Page 번호 누르면 onClickPage 함수 실행
   // HTML span 요소에 event.target 존재하지 않으면 return
@@ -64,7 +44,7 @@ export default function Pagination(props: IPaginationProps) {
   };
   // ----------------------------------------------------------
   return (
-    <PasinationUI
+    <PaginationUI
       onClickPage={onClickPage}
       onClickPrevPage={onClickPrevPage}
       onClickNextPage={onClickNextPage}

@@ -1,35 +1,51 @@
 import { useRouter } from "next/router";
-import { FETCH_BOARDS } from "./BoardList.queries";
+import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./BoardList.queries";
 import { useQuery } from "@apollo/client";
 import BoardListUI from "./BoardList.presenter";
 import {
   IQuery,
   IQueryFetchBoardsArgs,
+  IQueryFetchBoardsCountArgs,
 } from "../../../commons/types/generated/types";
-import React, { MouseEvent } from "react";
+import React, { MouseEvent, useState } from "react";
 
 export default function BoardListContainer() {
   const router = useRouter();
+  const [keyword, setKeyword] = useState("");
+
   const { data, refetch } = useQuery<
     Pick<IQuery, "fetchBoards">,
     IQueryFetchBoardsArgs
   >(FETCH_BOARDS);
-  console.log(data);
 
-  const onClickMoveToBoard = (event: React.MouseEvent<HTMLDivElement>) => {
-    router.push(`/freeboard/${(event?.target as HTMLDivElement).id}`);
+  const { data: dataBoardsCount, refetch: refetchBoardsCount } = useQuery<
+    Pick<IQuery, "fetchBoardsCount">,
+    IQueryFetchBoardsCountArgs
+  >(FETCH_BOARDS_COUNT);
+
+  const onClickMoveToBoard = (event: MouseEvent<HTMLDivElement>) => {
+    if (!(event.target instanceof HTMLDivElement)) return;
+    router.push(`/freeboard/${event?.currentTarget.id}`);
   };
 
-  const onClickNewBoard = (event: MouseEvent<HTMLButtonElement>) => {
+  const onClickNewBoard = () => {
     router.push(`/freeboard/new`);
+  };
+
+  const onChangeKeyword = (value: string) => {
+    setKeyword(value);
   };
 
   return (
     <BoardListUI
       data={data}
       refetch={refetch}
+      refetchBoardsCount={refetchBoardsCount}
       onClickMoveToBoard={onClickMoveToBoard}
       onClickNewBoard={onClickNewBoard}
+      count={dataBoardsCount?.fetchBoardsCount}
+      keyword={keyword}
+      onChangeKeyword={onChangeKeyword}
     />
   );
 }

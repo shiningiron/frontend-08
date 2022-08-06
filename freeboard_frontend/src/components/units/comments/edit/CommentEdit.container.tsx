@@ -10,6 +10,7 @@ import {
 } from "../../../../commons/types/generated/types";
 import DeleteCommentModal from "../delete/DeleteCommentModal";
 import EditStarRate from "../../../commons/EditstarRate";
+
 // import { FETCH_COMMENT } from "../fetch/FetchComment.queries";
 // import { useRouter } from "next/router";
 
@@ -72,7 +73,11 @@ export default function CommentsItem(props: any) {
             </Cmt.Thumb>
             <Cmt.ProfileBox>
               <Cmt.ProfileWriter>{props.el.writer}</Cmt.ProfileWriter>
-              <EditStarRate rating={props.el.rating} isEdit={isEdit} />
+              <EditStarRate
+                rating={props.el.rating}
+                isEdit={isEdit}
+                setRating={undefined}
+              />
               <Cmt.ProfileCreatedTime>
                 {getDate(props.el.createdAt)}
               </Cmt.ProfileCreatedTime>
@@ -85,6 +90,7 @@ export default function CommentsItem(props: any) {
           </Cmt.Tools>
         </Cmt.Box>
       )}
+
       {isEdit === true && (
         <Cmt.Box key={props.el._id}>
           <Cmt.WriterInfoBox>
@@ -93,7 +99,7 @@ export default function CommentsItem(props: any) {
             </Cmt.Thumb>
             <Cmt.ProfileBox>
               <Cmt.ProfileWriter>{props.el.writer}</Cmt.ProfileWriter>
-              <EditStarRate isEdit={isEdit} setRating={setRating} />
+              <EditStarRate isEdit={isEdit} setRating={setRating} rating={0} />
               <Cmt.ProfileCreatedTime>
                 {getDate(props.el.createdAt)}
               </Cmt.ProfileCreatedTime>

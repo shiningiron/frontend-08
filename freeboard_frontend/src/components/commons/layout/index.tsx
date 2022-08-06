@@ -33,7 +33,17 @@ export default function Layout(props: ILayoutProps) {
           사이드바
         </div>
 
-        <div>{props.children}</div>
+        <div
+          style={{
+            //   display: "flex",
+            //   flexDirection: "column",
+            //   alignContent: "center",
+            //   justifyContent: "center",
+            width: "100%",
+          }}
+        >
+          {props.children}
+        </div>
       </div>
       <LayoutFooter />
     </>

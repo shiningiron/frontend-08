@@ -1,36 +1,35 @@
-// import "../styles/globals.css";
-import {
-  ApolloClient,
-  ApolloLink,
-  ApolloProvider,
-  InMemoryCache,
-} from "@apollo/client";
 import { Global } from "@emotion/react";
 import "antd/dist/antd.css";
-import { createUploadLink } from "apollo-upload-client";
 import { AppProps } from "next/app";
 import Layout from "../src/components/commons/layout";
-// import { globalStyles } from "../src/commons/styles/globalStyles";
-import { resetStyles } from "../src/commons/styles/resetStyles";
+import { globalStyles } from "../src/commons/styles/globalStyles";
+import { initializeApp } from "firebase/app";
+import { RecoilRoot } from "recoil";
+import ApolloSetting from "../src/components/commons/apollo";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBQ85W8JsQ0hKV-jiOFC-eln7-7sCefCMU",
+  authDomain: "iron-4b175.firebaseapp.com",
+  projectId: "iron-4b175",
+  storageBucket: "iron-4b175.appspot.com",
+  messagingSenderId: "502285417083",
+  appId: "1:502285417083:web:5971fdf29e9f94f42cc0de",
+};
+
+// Initialize Firebase
+export const firebaseApp = initializeApp(firebaseConfig);
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const uploadLink = createUploadLink({
-    uri: "http://backend08.codebootcamp.co.kr/graphql",
-  });
-
-  const client = new ApolloClient({
-    link: ApolloLink.from([uploadLink]),
-    cache: new InMemoryCache(),
-  });
-
   return (
-    <ApolloProvider client={client}>
-      <Global styles={resetStyles} />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ApolloProvider>
+    <RecoilRoot>
+      <ApolloSetting>
+        <Global styles={globalStyles} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ApolloSetting>
+    </RecoilRoot>
   );
 }
-
 export default MyApp;

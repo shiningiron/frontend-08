@@ -8,9 +8,9 @@ export const Box = styled.div`
   margin-right: 10%;
   padding-top: 40px;
   padding-bottom: 20px;
-  width: 1200px;
+  width: 80rem;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   border-top: 1px solid #6600ff;
   border-bottom: 1px solid #6600ff;
   color: #fff;
@@ -47,14 +47,15 @@ export const ProfileCreatedTime = styled.div`
 `;
 export const Tools = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
-export const DeleteTool = styled(BsTrash2)`
-  margin-right: 20px;
-  width: 20px;
-  height: 20px;
-`;
+// export const DeleteTool = styled(BsTrash2)`
+//   margin-right: 5px;
+//   width: 20px;
+//   height: 20px;
+// `;
 export const EditTool = styled(FiTool)`
+  margin-right: 10px;
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -64,9 +65,10 @@ export const EditTool = styled(FiTool)`
 `;
 export const WriteBox = styled.div`
   display: flex;
+  width: auto;
 `;
 export const TextArea = styled.textarea`
-  width: 900px;
+  width: 62rem;
   border: none;
   resize: none;
   background-color: transparent;

@@ -12,11 +12,16 @@ export const PageBox = styled.div`
 
 export const PageArrow = styled.div`
   padding: 10px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
 `;
 
 export const PageNum = styled.div`
   padding: 10px;
   color: ${(props: IProps) => (props.isActive ? "#7b68ee" : "#fff")};
+  cursor: pointer;
+  user-select: none;
   /* font-size: ${(props: IProps) => (props.isActive ? "30px" : "20px")}; */
   @-webkit-keyframes tilt {
     0% {

@@ -1,11 +1,20 @@
 import * as Li from "../../../commons/styles/boardList.styles";
 import { IBoardListUIProps } from "./BoardList.types";
 import { getDate } from "../../../commons/libraries/utils";
-import Pagination from "../../commons/pasination/Pasination.container";
+import Pagination from "../../commons/pagination/Pagination.container";
+import styled from "@emotion/styled";
+import BoardListSearch from "../../commons/searchbar/boardlistSearch/boardListSearch.container";
+import { v4 as uuidv4 } from "uuid";
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 export default function BoardListUI(props: IBoardListUIProps) {
   return (
-    <>
+    <Wrapper>
       <Li.ListWrapper>
         {props.data?.fetchBoards.map((el) => (
           <Li.ListBox
@@ -13,7 +22,6 @@ export default function BoardListUI(props: IBoardListUIProps) {
             id={el._id}
             onClick={props.onClickMoveToBoard}
           >
-            {/* <Li.Img src={`https://storage.googleapis.com/${el.images[0]}`} /> */}
             {el?.images?.[0] ? (
               <Li.Img src={`https://storage.googleapis.com/${el.images[0]}`} />
             ) : (
@@ -21,7 +29,16 @@ export default function BoardListUI(props: IBoardListUIProps) {
                 style={{ width: "50px", height: "50px", marginRight: "50px" }}
               ></div>
             )}
-            <Li.Title id={el._id}>{el.title}</Li.Title>
+            <Li.Title id={el._id}>
+              {el.title
+                .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
+                .split("@#$%")
+                .map((el) => (
+                  <Li.TextToken key={uuidv4()} isMatched={props.keyword === el}>
+                    {el}
+                  </Li.TextToken>
+                ))}
+            </Li.Title>
             <Li.ListInfo id={el._id}>
               <Li.Writer id={el._id}>{el.writer}</Li.Writer>
               <Li.BoardDate id={el._id}>{getDate(el.createdAt)}</Li.BoardDate>
@@ -30,11 +47,16 @@ export default function BoardListUI(props: IBoardListUIProps) {
         ))}
       </Li.ListWrapper>
       <Li.Footer>
-        <Pagination data={props.data} refetch={props.refetch} />
+        <BoardListSearch
+          refetch={props.refetch}
+          refetchBoardsCount={props.refetchBoardsCount}
+          onChangeKeyword={props.onChangeKeyword}
+        />
+        <Pagination refetch={props.refetch} count={props.count} />
       </Li.Footer>
       <Li.NewBoardButton onClick={props.onClickNewBoard}>
         글쓰기
       </Li.NewBoardButton>
-    </>
+    </Wrapper>
   );
 }

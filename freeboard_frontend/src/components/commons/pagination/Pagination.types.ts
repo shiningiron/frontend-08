@@ -6,6 +6,7 @@ import {
 } from "../../../commons/types/generated/types";
 
 export interface IPaginationProps {
+  count?: number;
   refetch: (
     variables: Partial<IQueryFetchBoardsArgs>
   ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoards">>>;
@@ -14,8 +15,12 @@ export interface IPaginationProps {
 export interface IPaginationUIProps {
   onClickPrevPage: () => void;
   onClickNextPage: () => void;
-  onClickPage: (event: MouseEvent<HTMLSpanElement>) => void;
+  onClickPage: (event: MouseEvent<HTMLDivElement>) => void;
   startPage: number;
   lastPage: number;
   currentId: number;
+}
+
+export interface ITextTokenProps {
+  isMatched: boolean;
 }

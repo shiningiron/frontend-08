@@ -2,6 +2,7 @@ import * as B from "../../../../commons/styles/board.styles";
 import { IDetailBoardUIProps } from "./DetailBoard.types";
 import { getDate } from "../../../../commons/libraries/utils";
 import React from "react";
+import CommentContainer from "../../comments/create/CreateComment.container";
 
 export default function DetailBoardUI(props: IDetailBoardUIProps) {
   return (

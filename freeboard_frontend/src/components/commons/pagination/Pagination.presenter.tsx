@@ -1,6 +1,6 @@
-import { IPaginationUIProps } from "./pasination.types";
-import { PageArrow, PageBox, PageNum } from "./Pasination.styles";
-export default function PasinationUI(props: IPaginationUIProps) {
+import { IPaginationUIProps } from "./Pagination.types";
+import { PageArrow, PageBox, PageNum } from "./Pagination.styles";
+export default function PaginationUI(props: IPaginationUIProps) {
   return (
     <PageBox>
       <PageArrow onClick={props.onClickPrevPage}>{`<`}</PageArrow>

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import CreateUserModal from "../../modal/createUserModal/Modal.container";
 
 const Wrapper = styled.div`
   height: 50px;
@@ -6,5 +7,9 @@ const Wrapper = styled.div`
 `;
 
 export default function LayoutHeader() {
-  return <Wrapper>여기는 헤더영역 입니다</Wrapper>;
+  return (
+    <Wrapper>
+      <CreateUserModal />
+    </Wrapper>
+  );
 }

@@ -10,6 +10,7 @@ import {
   IQueryFetchBoardArgs,
 } from "../../../../commons/types/generated/types";
 import { FETCH_COMMENT } from "../fetch/FetchComment.queries";
+import FetchCommentsContainer from "../fetch/FetchComment.container";
 
 export default function CommentContainer() {
   const router = useRouter();
@@ -69,14 +70,16 @@ export default function CommentContainer() {
   };
 
   return (
-    <CommentUI
-      onChangeComments={onChangeComments}
-      onChangeWriter={onChangeWriter}
-      onChangePassword={onChangePassword}
-      setRating={setRating}
-      replyButton={replyButton}
-      contents={contents}
-      data={data}
-    />
+    <>
+      <CommentUI
+        onChangeComments={onChangeComments}
+        onChangeWriter={onChangeWriter}
+        onChangePassword={onChangePassword}
+        setRating={setRating}
+        replyButton={replyButton}
+        contents={contents}
+        data={data}
+      />
+    </>
   );
 }
