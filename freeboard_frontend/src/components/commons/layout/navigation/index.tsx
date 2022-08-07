@@ -1,10 +1,16 @@
 import styled from "@emotion/styled";
+import Navi01 from "./navi01/navi01.container";
 
 const Wrapper = styled.div`
-  height: 50px;
+  height: 50rem;
   background-color: green;
+  margin-right: 7%;
 `;
 
 export default function LayoutNavigation() {
-  return <Wrapper>여기는 내비게이션영역 입니다</Wrapper>;
+  return (
+    <Wrapper>
+      <Navi01 />
+    </Wrapper>
+  );
 }

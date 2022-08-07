@@ -11,7 +11,10 @@ export const globalStyles = css`
   }
 
   body {
-    background-color: #1c093b;
+    /* min-height: 100vh; */
+    background: linear-gradient(to bottom, #6400ff, #d8bfd8) fixed;
+    background-repeat: no-repeat;
+
     /* background-color: #191970; */
     /* background-color: #483d8b; */
     /* background-color: #8a39e1; */

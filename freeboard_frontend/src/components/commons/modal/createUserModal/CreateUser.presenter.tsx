@@ -12,22 +12,22 @@ const EmailInput = styled.input``;
 const PasswordInput = styled.input``;
 const NameInput = styled.input``;
 const ErrorMsg = styled.div`
-  color: aliceblue;
-`;
-const SubmitButton = styled.div`
-  width: 100px;
-  border-radius: 10px;
-  color: #fff;
-  background-color: #6400ff;
+  color: black;
 `;
 
 export default function CreateUserUI(props: ICreateUserUIProps) {
   return (
     <Wrapper>
       <InputBox>
-        <EmailInput id="email" type="text" onChange={props.onChangeInputs} />
+        <EmailInput
+          id="email"
+          type="text"
+          onChange={props.onChangeInputs}
+          placeholder="email을 입력해주세요"
+          // value={props.isModalVisible ? "" : ""}
+        />
         <ErrorMsg>
-          {props.emailCheck ? "" : "옳바른 email 형식이 아닙니다."}
+          {props.emailCheck ? "" : "올바른 email 형식이 아닙니다."}
         </ErrorMsg>
       </InputBox>
       <InputBox>
@@ -35,6 +35,8 @@ export default function CreateUserUI(props: ICreateUserUIProps) {
           id="password"
           type="password"
           onChange={props.onChangeInputs}
+          placeholder="비밀번호를 입력해주세요"
+          // defaultValue={props.isModalVisible ? "" : ""}
         />
         <ErrorMsg>
           {props.passwordCheck
@@ -43,9 +45,14 @@ export default function CreateUserUI(props: ICreateUserUIProps) {
         </ErrorMsg>
       </InputBox>
       <InputBox>
-        <NameInput id="name" type="text" onChange={props.onChangeInputs} />
+        <NameInput
+          id="name"
+          type="text"
+          onChange={props.onChangeInputs}
+          placeholder="이름을 입력해주세요"
+          // defaultValue={props.isModalVisible ? "" : ""}
+        />
       </InputBox>
-      <SubmitButton onClick={props.onClickSubmit}>가입하기</SubmitButton>
     </Wrapper>
   );
 }

@@ -20,7 +20,7 @@ interface IStarRateProps {
 }
 
 export default function StarRate(props: IStarRateProps) {
-  const [value, setValue] = useState(2);
+  const [value, setValue] = useState(0);
   // console.log(value);
   //   const desc = [1, 2, 3, 4, 5];
   const abc = (value) => {

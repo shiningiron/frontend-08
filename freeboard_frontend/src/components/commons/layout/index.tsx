@@ -5,7 +5,7 @@ import LayoutFooter from "../layout/footer";
 import LayoutNavigation from "../layout/navigation";
 import { useRouter } from "next/router";
 
-const HIDDEN_HEADERS = ["/freeboard"];
+const HIDDEN_BANNERS = ["/freeboard"];
 
 interface ILayoutProps {
   children: ReactNode;
@@ -15,37 +15,26 @@ export default function Layout(props: ILayoutProps) {
   const router = useRouter();
   console.log(router);
 
-  const isHiddenHeader = HIDDEN_HEADERS.includes(router.asPath);
+  const isHiddenBanner = HIDDEN_BANNERS.includes(router.asPath);
 
   return (
     <>
-      {!isHiddenHeader && <LayoutHeader />}
-      <LayoutBanner />
-      <LayoutNavigation />
+      <LayoutHeader />
       <div style={{ display: "flex" }}>
+        <LayoutNavigation />
         <div
-          style={{
-            width: "100px",
-            height: "700px",
-            backgroundColor: "purple",
-          }}
+          style={{ display: "flex", flexDirection: "column", width: "100%" }}
         >
-          사이드바
-        </div>
-
-        <div
-          style={{
-            //   display: "flex",
-            //   flexDirection: "column",
-            //   alignContent: "center",
-            //   justifyContent: "center",
-            width: "100%",
-          }}
-        >
-          {props.children}
+          {!isHiddenBanner && <LayoutBanner />}
+          <div
+            style={{
+              width: "100%",
+            }}
+          >
+            {props.children}
+          </div>
         </div>
       </div>
-      <LayoutFooter />
     </>
   );
 }

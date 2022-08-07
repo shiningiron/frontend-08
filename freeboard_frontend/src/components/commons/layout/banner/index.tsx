@@ -1,10 +1,17 @@
 import styled from "@emotion/styled";
+import SlickLib from "../../../../commons/libraries/slick";
 
 const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
   height: 100px;
-  background-color: yellow;
+  margin-bottom: 200px;
 `;
 
 export default function LayoutBanner() {
-  return <Wrapper>여기는 배너영역 입니다</Wrapper>;
+  return (
+    <Wrapper>
+      <SlickLib />
+    </Wrapper>
+  );
 }
