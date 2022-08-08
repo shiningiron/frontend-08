@@ -77,7 +77,7 @@ export default function CreateUserModal() {
   return (
     <>
       <Cm.UserCreate onClick={onToggleModal}>
-        <span style={{ color: "#fff" }}>회원가입</span>
+        <span style={{ color: "#fff", cursor: "pointer" }}>회원가입</span>
       </Cm.UserCreate>
       <CreateUserModalUI
         isModalVisible={isModalVisible}

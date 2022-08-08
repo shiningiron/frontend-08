@@ -1,15 +1,17 @@
 import styled from "@emotion/styled";
-import ReactSlider from "../../../../commons/libraries/slick/index";
+import SlickLib from "../../../../commons/libraries/slick";
 
 const Wrapper = styled.div`
-    display: absolute;
-    height: 350px;
-    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    margin-bottom: 200px;
 `;
-export default function BannerLayout() {
+
+export default function LayoutBanner() {
     return (
         <Wrapper>
-            <ReactSlider />
+            <SlickLib />
         </Wrapper>
     );
 }

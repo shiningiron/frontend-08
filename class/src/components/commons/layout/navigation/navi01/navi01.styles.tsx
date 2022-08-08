@@ -1,10 +1,6 @@
 import styled from "@emotion/styled";
 import { BsBox } from "react-icons/bs";
-import {
-  IoEarthOutline,
-  IoPersonOutline,
-  IoBagHandleOutline,
-} from "react-icons/io5";
+import { IoEarthOutline, IoPersonOutline } from "react-icons/io5";
 import { TbLayoutBoard } from "react-icons/tb";
 
 interface Props {
@@ -112,9 +108,6 @@ export const PersonIcon = styled(IoPersonOutline)`
   font-size: 1.75em;
 `;
 export const BoardsIcon = styled(TbLayoutBoard)`
-  font-size: 1.75em;
-`;
-export const UsedMarket = styled(IoBagHandleOutline)`
   font-size: 1.75em;
 `;
 export const ToggleMenu = styled.div`

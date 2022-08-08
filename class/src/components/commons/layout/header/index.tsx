@@ -1,10 +1,18 @@
 import styled from "@emotion/styled";
+// import { useRecoilState } from "recoil";
+// import { accessTokenState, userInfoState } from "../../../../commons/store";
+// import LoginPage from "../../../units/user/login/Login.container";
+// import CreateUserModal from "../../modal/createUserModal/Modal.container";
 
 const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     height: 50px;
-    background-color: #b60d34;
+    padding-right: 2em;
+    /* background-color: #b60d34; */
 `;
-
-export default function LayoutHeader() {
-    return <Wrapper>여기는 Header 영역 입니다</Wrapper>;
+function LayoutHeader() {
+    return <Wrapper>...</Wrapper>;
 }
+export default LayoutHeader;

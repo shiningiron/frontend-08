@@ -44,14 +44,6 @@ export default function Navi01UI() {
               <Nav.TitleBox className="title">Boards</Nav.TitleBox>
             </Nav.Link>
           </Nav.List>
-          <Nav.List>
-            <Nav.Link href="http://localhost:3000/usedItem/new">
-              <Nav.IconBox className="icon">
-                <Nav.UsedMarket />
-              </Nav.IconBox>
-              <Nav.TitleBox className="title">UsedMarket</Nav.TitleBox>
-            </Nav.Link>
-          </Nav.List>
         </Nav.ListWrapper>
         <Nav.ToggleMenu
           className="toggle"

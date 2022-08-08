@@ -26,7 +26,7 @@ export default function ReactHookFormPage() {
         <form onSubmit={handleSubmit(onClickButton)}>
             작성자: <Input01 type="text" register={register("writer")} />
             <div>{formState.errors.writer?.message}</div>
-            비밀번호:{" "}
+            비밀번호:
             <Input01 type="password" register={register("password")} />
             <div>{formState.errors.password?.message}</div>
             제목: <Input01 type="text" register={register("title")} />

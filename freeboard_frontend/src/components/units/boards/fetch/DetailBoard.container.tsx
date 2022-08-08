@@ -12,6 +12,7 @@ import {
   IQueryFetchBoardArgs,
 } from "../../../../commons/types/generated/types";
 import { useState } from "react";
+import { FETCH_BOARDS } from "../../list/BoardList.queries";
 
 export default function DetailBoardContainer() {
   const router = useRouter();
@@ -46,6 +47,7 @@ export default function DetailBoardContainer() {
   const onClickDelete = async () => {
     const result = await deleteBoard({
       variables: { boardId: router.query.newBoardId as string },
+      refetchQueries: [{ query: FETCH_BOARDS }],
     });
     alert("게시글이 삭제 되었습니다.");
     router.push("/freeboard");

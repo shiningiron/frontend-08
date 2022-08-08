@@ -1,0 +1,24 @@
+ function useQuery(aaa) {
+     // aaa를 통해서 Backend에 API 요청함!!
+     return {
+         data: { fetchBoards: "결과값" },
+     };
+ }
+ undefined;
+
+ const { data } = useQuery("FETCH_BOARDS");
+ undefined;
+
+ data;
+ {
+     fetchBoards: "결과값";
+ }
+
+ data.fetchBoards;
+ ("결과값");
+
+ const aaa = useQuery("FETCH_BOARDS");
+ undefined;
+
+ aaa.data.fetchBoards;
+ ("결과값");

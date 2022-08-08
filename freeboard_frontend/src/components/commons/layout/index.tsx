@@ -5,17 +5,20 @@ import LayoutFooter from "../layout/footer";
 import LayoutNavigation from "../layout/navigation";
 import { useRouter } from "next/router";
 
-const HIDDEN_BANNERS = ["/freeboard"];
-
 interface ILayoutProps {
   children: ReactNode;
 }
-
+// const HIDDEN_BANNERS = [
+//   "/freeboard",
+//   `/freeboard/${router.query.newBoardId}`,
+// ];
+const SHOW_BANNERS = ["/"];
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
   console.log(router);
 
-  const isHiddenBanner = HIDDEN_BANNERS.includes(router.asPath);
+  // const isHiddenBanner = HIDDEN_BANNERS.includes(router.asPath);
+  const isShowBanner = SHOW_BANNERS.includes(router.asPath);
 
   return (
     <>
@@ -25,7 +28,7 @@ export default function Layout(props: ILayoutProps) {
         <div
           style={{ display: "flex", flexDirection: "column", width: "100%" }}
         >
-          {!isHiddenBanner && <LayoutBanner />}
+          {isShowBanner && <LayoutBanner />}
           <div
             style={{
               width: "100%",

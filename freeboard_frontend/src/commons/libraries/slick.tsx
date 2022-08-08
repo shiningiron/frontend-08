@@ -69,7 +69,7 @@ export default function SlickLib() {
       <CustomSlider {...settings}>
         {new Array(3).fill(1).map((_, index) => (
           <ImageCard key={index}>
-            <Images src="/images/Carousel.png" />
+            <Images src="/images/purple.jpeg" />
           </ImageCard>
         ))}
       </CustomSlider>
