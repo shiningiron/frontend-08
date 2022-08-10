@@ -1,7 +1,7 @@
 import * as B from "../../../../commons/styles/board.styles";
-import { ICreateBoardUIProps } from "./CreateBoard.types";
+import { ICreateBoardUIProps } from "./createBoard.types";
 import { v4 as uuidv4 } from "uuid";
-import UploadImageContainer from "../../../commons/uploadImage/UploadImage.container";
+import UploadImageContainer from "../../../commons/uploadImage/uploadImage.container";
 
 export default function CreateBoardUI(props: ICreateBoardUIProps) {
   return (

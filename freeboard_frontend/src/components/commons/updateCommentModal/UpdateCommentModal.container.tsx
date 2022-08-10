@@ -1,6 +1,6 @@
-import UpdateCommentModalUI from "./UpdateCommentModal.presenter";
+import UpdateCommentModalUI from "./updateCommentModal.presenter";
 import { useState } from "react";
-import { ICommentModalProps } from "./UpdateCommentModal.types";
+import { ICommentModalProps } from "./updateCommentModal.types";
 
 export default function UpdateCommentModal(props: ICommentModalProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);

@@ -1,5 +1,5 @@
-import * as C from "./CommentModal.styles";
-import { ICommentModalUIProps } from "./CommentModal.types";
+import * as C from "./commentModal.styles";
+import { ICommentModalUIProps } from "./commentModal.types";
 
 export default function CommentModalUI(props: ICommentModalUIProps) {
   return (

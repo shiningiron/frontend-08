@@ -1,6 +1,6 @@
-import DetailBoardContainer from "../../../src/components/units/boards/fetch/DetailBoard.container";
-import CommentContainer from "../../../src/components/units/comments/create/CreateComment.container";
-import FetchCommentsContainer from "../../../src/components/units/comments/fetch/FetchComment.container";
+import DetailBoardContainer from "../../../src/components/units/boards/fetch/detailBoard.container";
+import CommentContainer from "../../../src/components/units/comments/create/createComment.container";
+import FetchCommentsContainer from "../../../src/components/units/comments/fetch/fetchComment.container";
 
 export default function DetailPage() {
   return (

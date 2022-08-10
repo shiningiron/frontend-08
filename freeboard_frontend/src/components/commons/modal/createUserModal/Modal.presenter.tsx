@@ -1,6 +1,6 @@
-import CreateUserUI from "./CreateUser.presenter";
-import { ICreateUserModalUIProps } from "./CreateUser.types";
-import * as Cm from "./Modal.styles";
+import CreateUserUI from "./createUser.presenter";
+import { ICreateUserModalUIProps } from "./createUser.types";
+import * as Cm from "./modal.styles";
 
 export default function CreateUserModalUI(props: ICreateUserModalUIProps) {
   return (

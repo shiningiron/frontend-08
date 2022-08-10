@@ -1,9 +1,9 @@
-import * as C from "./DeleteCommentModal.styles";
-import { FETCH_COMMENT } from "../fetch/FetchComment.queries";
+import * as C from "./deleteCommentModal.styles";
+import { FETCH_COMMENT } from "../fetch/fetchComment.queries";
 import { useRouter } from "next/router";
 import { useMutation, gql } from "@apollo/client";
 import { ChangeEvent, useState } from "react";
-import { IDeleteCommentModalUI } from "./DeleteCommentModal.types";
+import { IDeleteCommentModalUI } from "./deleteCommentModal.types";
 
 const DELETE_COMMENT = gql`
   mutation deleteBoardComment($password: String, $boardCommentId: ID!) {

@@ -23,22 +23,17 @@ export default function Layout(props: ILayoutProps) {
         <>
             <LayoutHeader />
             <div style={{ display: "flex" }}>
-                <LayoutNavigation />
+                <div style={{ width: "10%", marginRight: "1em" }}>
+                    <LayoutNavigation />
+                </div>
+
+                {/* {!isHiddenBanner && <LayoutBanner />} */}
                 <div
                     style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        width: "100%",
+                        width: "80%",
                     }}
                 >
-                    {/* {!isHiddenBanner && <LayoutBanner />} */}
-                    <div
-                        style={{
-                            width: "100%",
-                        }}
-                    >
-                        {props.children}
-                    </div>
+                    {props.children}
                 </div>
             </div>
         </>

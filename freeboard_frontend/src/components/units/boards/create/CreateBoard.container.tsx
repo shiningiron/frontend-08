@@ -1,15 +1,15 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
-import { CREATE_BOARD, UPDATE_BOARD } from "./CreateBoard.queries";
+import { CREATE_BOARD, UPDATE_BOARD } from "./createBoard.queries";
 import { useRouter } from "next/router";
-import CreateBoardUI from "./CreateBoard.presenter";
+import CreateBoardUI from "./createBoard.presenter";
 import {
   IMutation,
   IMutationCreateBoardArgs,
   IMutationUpdateBoardArgs,
   IUpdateBoardInput,
 } from "../../../../commons/types/generated/types";
-import { ICreateBoardProps } from "./CreateBoard.types";
+import { ICreateBoardProps } from "./createBoard.types";
 import { Modal } from "antd";
 
 export default function CreateBoardContainer(props: ICreateBoardProps) {

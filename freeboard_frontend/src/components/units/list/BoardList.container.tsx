@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./BoardList.queries";
+import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./boardList.queries";
 import { useQuery } from "@apollo/client";
-import BoardListUI from "./BoardList.presenter";
+import BoardListUI from "./boardList.presenter";
 import {
   IQuery,
   IQueryFetchBoardsArgs,

@@ -2,13 +2,13 @@ import { getDate } from "../../../../commons/libraries/utils";
 import { ChangeEvent, useState } from "react";
 import * as Cmt from "../../../../commons/styles/Comment.styles";
 import { useMutation } from "@apollo/client";
-import { UPDATE_COMMENT } from "./CommentEdit.queries";
-import UpdateCommentModal from "../../../commons/updateCommentModal/UpdateCommentModal.container";
+import { UPDATE_COMMENT } from "./commentEdit.queries";
+import UpdateCommentModal from "../../../commons/updateCommentModal/updateCommentModal.container";
 import {
   IMutation,
   IMutationUpdateBoardCommentArgs,
 } from "../../../../commons/types/generated/types";
-import DeleteCommentModal from "../delete/DeleteCommentModal";
+import DeleteCommentModal from "../delete/deleteCommentModal";
 import EditStarRate from "../../../commons/EditstarRate";
 
 // import { FETCH_COMMENT } from "../fetch/FetchComment.queries";

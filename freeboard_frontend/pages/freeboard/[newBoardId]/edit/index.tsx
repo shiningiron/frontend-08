@@ -2,8 +2,8 @@ import {
   IQuery,
   IQueryFetchBoardArgs,
 } from "../../../../src/commons/types/generated/types";
-import CreateBoardContainer from "../../../../src/components/units/boards/create/CreateBoard.container";
-import { FETCH_BOARD } from "../../../../src/components/units/boards/fetch/DetailBoard.queries";
+import CreateBoardContainer from "../../../../src/components/units/boards/create/createBoard.container";
+import { FETCH_BOARD } from "../../../../src/components/units/boards/fetch/detailBoard.queries";
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 

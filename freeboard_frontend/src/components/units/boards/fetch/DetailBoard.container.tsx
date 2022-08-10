@@ -1,8 +1,8 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { FETCH_BOARD, LIKE_BOARD, DISLIKE_BOARD } from "./DetailBoard.queries";
+import { FETCH_BOARD, LIKE_BOARD, DISLIKE_BOARD } from "./detailBoard.queries";
 import { useRouter } from "next/router";
-import DetailBoardUI from "./DetailBoard.presenter";
-import { DELETE_BOARD } from "../delete/DeleteBoard.queries";
+import DetailBoardUI from "./detailBoard.presenter";
+import { DELETE_BOARD } from "../delete/deleteBoard.queries";
 import {
   IMutation,
   IMutationDeleteBoardArgs,
@@ -12,7 +12,7 @@ import {
   IQueryFetchBoardArgs,
 } from "../../../../commons/types/generated/types";
 import { useState } from "react";
-import { FETCH_BOARDS } from "../../list/BoardList.queries";
+import { FETCH_BOARDS } from "../../list/boardList.queries";
 
 export default function DetailBoardContainer() {
   const router = useRouter();

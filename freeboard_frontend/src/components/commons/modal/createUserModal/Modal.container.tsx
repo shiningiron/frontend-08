@@ -1,13 +1,13 @@
 import { ChangeEvent, useState } from "react";
-import * as Cm from "./Modal.styles";
-import CreateUserModalUI from "./Modal.presenter";
+import * as Cm from "./modal.styles";
+import CreateUserModalUI from "./modal.presenter";
 import { useRouter } from "next/router";
 import {
   IMutation,
   IMutationCreateUserArgs,
 } from "../../../../commons/types/generated/types";
 import { useMutation } from "@apollo/client";
-import { CREATE_USER } from "./CreateUser.queries";
+import { CREATE_USER } from "./createUser.queries";
 import { Modal } from "antd";
 
 const initialInputs = { email: "", password: "", name: "" };

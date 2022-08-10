@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { useRecoilState } from "recoil";
 import { accessTokenState, userInfoState } from "../../../../commons/store";
-import LoginPage from "../../../units/user/login/Login.container";
-import CreateUserModal from "../../modal/createUserModal/Modal.container";
+import LoginPage from "../../../units/user/login/login.container";
+import CreateUserModal from "../../modal/createUserModal/modal.container";
 
 const Wrapper = styled.div`
   display: flex;

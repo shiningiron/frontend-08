@@ -1,7 +1,7 @@
 import * as Li from "../../../commons/styles/boardList.styles";
-import { IBoardListUIProps } from "./BoardList.types";
+import { IBoardListUIProps } from "./boardList.types";
 import { getDate } from "../../../commons/libraries/utils";
-import Pagination from "../../commons/pagination/Pagination.container";
+import Pagination from "../../commons/pagination/pagination.container";
 import styled from "@emotion/styled";
 import BoardListSearch from "../../commons/searchbar/boardlistSearch/boardListSearch.container";
 import { v4 as uuidv4 } from "uuid";

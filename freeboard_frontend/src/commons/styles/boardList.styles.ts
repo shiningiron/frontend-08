@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ITextTokenProps } from "../../components/commons/pagination/Pagination.types";
+import { ITextTokenProps } from "../../components/commons/pagination/pagination.types";
 
 export const ListWrapper = styled.div`
   width: 1200px;

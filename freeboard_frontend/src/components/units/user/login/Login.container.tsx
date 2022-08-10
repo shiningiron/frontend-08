@@ -8,8 +8,8 @@ import {
   IMutation,
   IMutationLoginUserArgs,
 } from "../../../../commons/types/generated/types";
-import LoginPageUI from "./Login.presenter";
-import { FETCH_USER_LOGGED_IN, LOGIN_USER } from "./Login.queries";
+import LoginPageUI from "./login.presenter";
+import { FETCH_USER_LOGGED_IN, LOGIN_USER } from "./login.queries";
 
 export default function LoginPage() {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);

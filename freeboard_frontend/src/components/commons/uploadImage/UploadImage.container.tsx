@@ -1,9 +1,9 @@
 import { useMutation } from "@apollo/client";
 import { ChangeEvent, useRef } from "react";
-import { UPLOAD_FILE } from "../../units/boards/create/CreateBoard.queries";
+import { UPLOAD_FILE } from "../../units/boards/create/createBoard.queries";
 import { checkValidationImage } from "../../../commons/libraries/fileValidation";
 import { Modal } from "antd";
-import UploadImageUI from "./UploadImageUI";
+import UploadImageUI from "./uploadImageUI";
 
 export default function UploadImageContainer(props: any) {
   const fileRef = useRef<HTMLInputElement>(null);

@@ -1,6 +1,6 @@
 import { MouseEvent, useState } from "react";
-import { IPaginationProps } from "./Pagination.types";
-import PaginationUI from "./Pagination.presenter";
+import { IPaginationProps } from "./pagination.types";
+import PaginationUI from "./pagination.presenter";
 
 export default function Pagination(props: IPaginationProps) {
   const [startPage, setStartPage] = useState(1);

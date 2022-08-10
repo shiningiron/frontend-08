@@ -1,5 +1,5 @@
 
-import CreateBoardContainer from "../../../src/components/units/boards/create/CreateBoard.container";
+import CreateBoardContainer from "../../../src/components/units/boards/create/createBoard.container";
 
 
 

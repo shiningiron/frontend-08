@@ -1,7 +1,7 @@
 import * as Cmt from "../../../../commons/styles/Comment.styles";
 import { getDate } from "../../../../commons/libraries/utils";
-import { ICreateCommentUIProps } from "./CreateComment.types";
-import CommentModal from "../../../commons/createCommentModal/CommentModal.container";
+import { ICreateCommentUIProps } from "./createComment.types";
+import CommentModal from "../../../commons/createCommentModal/commentModal.container";
 import StarRate from "../../../commons/starRate";
 
 export default function CommentUI(props: ICreateCommentUIProps) {

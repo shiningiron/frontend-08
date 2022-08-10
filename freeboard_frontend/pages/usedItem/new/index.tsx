@@ -1,4 +1,4 @@
-import CreateUsedItemContainer from "../../../src/components/units/product/create/CreateUsedItem.container";
+import CreateUsedItemContainer from "../../../src/components/units/product/create/createUsedItem.container";
 
 export default function CreateUsedItemPage() {
   return <CreateUsedItemContainer />;

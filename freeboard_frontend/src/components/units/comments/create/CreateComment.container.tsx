@@ -1,16 +1,16 @@
-import CommentUI from "./CreateComment.presenter";
+import CommentUI from "./createComment.presenter";
 import { useMutation, useQuery } from "@apollo/client";
-import { CREATE_COMMENT } from "./CreateComment.queries";
-import { FETCH_BOARD } from "../../boards/fetch/DetailBoard.queries";
+import { CREATE_COMMENT } from "./createComment.queries";
+import { FETCH_BOARD } from "../../boards/fetch/detailBoard.queries";
 import { useRouter } from "next/router";
 import { ChangeEvent, MouseEvent, useState } from "react";
-import { ICommentVariables } from "./CreateComment.types";
+import { ICommentVariables } from "./createComment.types";
 import {
   IQuery,
   IQueryFetchBoardArgs,
 } from "../../../../commons/types/generated/types";
-import { FETCH_COMMENT } from "../fetch/FetchComment.queries";
-import FetchCommentsContainer from "../fetch/FetchComment.container";
+import { FETCH_COMMENT } from "../fetch/fetchComment.queries";
+import FetchCommentsContainer from "../fetch/fetchComment.container";
 
 export default function CommentContainer() {
   const router = useRouter();

@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { FETCH_COMMENT } from "./FetchComment.queries";
-import FetchCommentUI from "./FetchComment.presenter";
+import { FETCH_COMMENT } from "./fetchComment.queries";
+import FetchCommentUI from "./fetchComment.presenter";
 import React from "react";
 import {
   IQuery,

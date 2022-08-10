@@ -1,5 +1,5 @@
-import { IFetchCommentUIProps } from "./FetchComment.types";
-import CommentsItem from "../edit/CommentEdit.container";
+import { IFetchCommentUIProps } from "./fetchComment.types";
+import CommentsItem from "../edit/commentEdit.container";
 import InfiniteScroll from "react-infinite-scroller";
 import styled from "@emotion/styled";
 

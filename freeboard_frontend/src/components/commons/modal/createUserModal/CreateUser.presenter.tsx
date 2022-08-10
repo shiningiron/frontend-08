@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ICreateUserUIProps } from "./CreateUser.types";
+import { ICreateUserUIProps } from "./createUser.types";
 
 const Wrapper = styled.div`
   display: flex;

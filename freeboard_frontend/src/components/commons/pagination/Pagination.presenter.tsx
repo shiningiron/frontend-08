@@ -1,5 +1,5 @@
-import { IPaginationUIProps } from "./Pagination.types";
-import { PageArrow, PageBox, PageNum } from "./Pagination.styles";
+import { IPaginationUIProps } from "./pagination.types";
+import { PageArrow, PageBox, PageNum } from "./pagination.styles";
 export default function PaginationUI(props: IPaginationUIProps) {
   return (
     <PageBox>
