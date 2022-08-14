@@ -1,26 +1,36 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { BsCartPlus, BsCartX } from "react-icons/bs";
-import { IBoard } from "../../../../commons/types/generated/types";
+import { IUseditem } from "../../../../commons/types/generated/types";
 
 const List = styled.li`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  /* width: 50rem; */
   height: 3em;
-  border: 1px solid #c305e0;
+  /* border: 1px solid #c305e0; */
   border-radius: 50px;
   margin: 5px;
   background-color: rgba(0, 0, 0, 0.1);
 `;
+const ItemBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+`;
 const Item = styled.div`
-  width: ${(props) => (props.title ? "23em" : "8em")};
-  padding: 10px;
+  width: ${(props) => (props.title ? "23rem" : "8rem")};
+  /* padding: 10px; */
   color: #fff;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  cursor: pointer;
 `;
 const BasketBox = styled.div`
   display: flex;
@@ -29,29 +39,32 @@ const BasketBox = styled.div`
   align-items: center;
   width: 90px;
 `;
-const Label = styled.div`
+const BasketIcon = styled(BsCartPlus)`
+  font-size: 2rem;
+  cursor: pointer;
   color: ${(props: any) => (props.isCancel ? "#ff00e6" : "#fff")};
 `;
-const BasketIcon = styled(BsCartPlus)`
-  font-size: 1em;
-  cursor: pointer;
-  color: white;
-`;
 const CancelBasketIcon = styled(BsCartX)`
-  font-size: 1em;
+  font-size: 2rem;
   cursor: pointer;
-  color: #ff00e6;
+  color: ${(props: any) => (props.isCancel ? "#ff00e6" : "#fff")};
+`;
+export const TextToken = styled.span`
+  color: ${(props: any) => (props.isMatched ? "#0ffe" : "white")};
 `;
 
 interface IListItemsProps {
-  el: IBoard;
+  el: IUseditem;
+  onClickToUsedItem: (data: IUseditem) => () => void;
 }
 
 export default function ListItems(props: IListItemsProps) {
   const [isCancel, setIsCancel] = useState(false);
-  const onClickBasket = (basket: IBoard) => () => {
-    const baskets: Pick<IBoard, "contents" | "title" | "_id" | "writer">[] =
-      JSON.parse(localStorage.getItem("baskets") || "[]");
+  const onClickBasket = (basket: IUseditem) => () => {
+    const baskets: Pick<
+      IUseditem,
+      "contents" | "remarks" | "_id" | "name" | "price" | "seller"
+    >[] = JSON.parse(localStorage.getItem("baskets") || "[]");
     console.log(baskets);
 
     const temp = baskets.filter((el) => el._id === basket._id);
@@ -73,17 +86,26 @@ export default function ListItems(props: IListItemsProps) {
   return (
     <>
       <List key={props.el._id}>
-        <Item>{props.el.writer}</Item>
-        <Item title={"title"}>{props.el.title}</Item>
+        <ItemBox onClick={props.onClickToUsedItem(props.el)}>
+          <Item>
+            {props.el.name
+              .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
+              .split("@#$%")
+              .map((el) => (
+                <TextToken key={uuidv4()} isMatched={props.keyword === el}>
+                  {el}
+                </TextToken>
+              ))}
+          </Item>
+          <Item title={"remarks"}>{props.el.remarks}</Item>
+        </ItemBox>
         {isCancel ? (
           <BasketBox>
-            <CancelBasketIcon onClick={onClickBasket(props.el)} />
-            <Label isCancel>담기 취소</Label>
+            <CancelBasketIcon onClick={onClickBasket(props.el)} isCancel />
           </BasketBox>
         ) : (
           <BasketBox>
             <BasketIcon onClick={onClickBasket(props.el)} />
-            <Label>게시물 담기</Label>
           </BasketBox>
         )}
       </List>

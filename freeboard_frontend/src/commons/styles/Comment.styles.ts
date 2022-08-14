@@ -4,15 +4,36 @@ import { FiTool } from "react-icons/fi";
 
 export const Box = styled.div`
   /* margin-top: 10%; */
-  margin-left: 10%;
-  margin-right: 10%;
-  padding-top: 40px;
-  padding-bottom: 20px;
-  width: 80rem;
+  /* margin-left: 50px;
+  margin-right: 50px; */
+  margin: 20px 50px 0px 50px;
+  /* padding-top: 40px;
+  padding-bottom: 20px; */
+  padding: 30px 10px 20px 10px;
+  /* width: 80rem; */
+  width: 70rem;
   display: flex;
-  /* justify-content: space-between; */
-  border-top: 1px solid #6600ff;
+  justify-content: space-between;
+  /* border-top: 1px solid #6600ff;
   border-bottom: 1px solid #6600ff;
+  border: 1px solid #6600ff; */
+  /* color: #fff; */
+  /* flex-direction: column; */
+  /* border: 1px solid #640064; */
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-radius: 1rem 1rem 0.2rem 0.2rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 10px 0px rgb(100, 0, 255);
+`;
+export const ListBox = styled.div`
+  margin: 0px 50px 0px 50px;
+  padding: 30px 10px 20px 10px;
+  width: 70rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.1);
   color: #fff;
 `;
 export const WriterInfoBox = styled.div`
@@ -67,14 +88,17 @@ export const WriteBox = styled.div`
   display: flex;
   width: auto;
 `;
-export const TextArea = styled.textarea`
-  width: 62rem;
+export const CommentInput = styled.input`
+  width: 50rem;
   border: none;
-  resize: none;
+  vertical-align: bottom;
   background-color: transparent;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gray;
+  transition: 0.4s;
+  color: #fff;
   &:focus {
     outline: none;
+    border-bottom: 1px solid #6400ff;
   }
 `;
 export const NonMemberWriter = styled.input``;
@@ -107,7 +131,10 @@ export const submitButton = styled.button`
 `;
 // 댓글 목록-----------
 
+export const ListWrapper = styled.div``;
+
 export const CommentContents = styled.div`
   width: 75%;
-  border-bottom: 1px solid black;
+  color: #fff;
+  /* border-bottom: 1px solid black; */
 `;

@@ -2,24 +2,20 @@ import styled from "@emotion/styled";
 import { ITextTokenProps } from "../../components/commons/pagination/pagination.types";
 
 export const ListWrapper = styled.div`
-  width: 1200px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 1px solid #6600ff;
-  margin: 50px 50px 0px 50px;
-  /* color: #fff; */
-  color: #d8bfd8;
 `;
 
 export const ListBox = styled.div`
-  width: 100%;
+  width: 60rem;
   padding: 10px;
   padding-right: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #6600ff;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 1.5rem;
+  margin-bottom: 1rem;
   font-size: 25px;
 `;
 export const Title = styled.div`
@@ -38,6 +34,7 @@ export const ListInfo = styled.div`
 export const Writer = styled.div`
   font-size: 20px;
   text-align: end;
+  color: #fff;
 `;
 export const TextToken = styled.span`
   color: ${(props: ITextTokenProps) => (props.isMatched ? "#0ffe" : "white")};
@@ -45,6 +42,7 @@ export const TextToken = styled.span`
 export const BoardDate = styled.div`
   font-size: 20px;
   text-align: end;
+  color: #fff;
 `;
 export const NewBoardButton = styled.button`
   position: fixed;

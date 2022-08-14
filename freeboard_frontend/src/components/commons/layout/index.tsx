@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import LayoutBanner from "../layout/banner";
 import LayoutHeader from "../layout/header";
-import LayoutFooter from "../layout/footer";
+// import LayoutFooter from "../layout/footer";
 import LayoutNavigation from "../layout/navigation";
 import { useRouter } from "next/router";
 

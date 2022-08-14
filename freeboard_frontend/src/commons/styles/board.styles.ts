@@ -36,7 +36,8 @@ export const DaumPostcodeLibrary = styled(DaumPostcodeEmbed)``;
 //  등록 페이지------------------등록 페이지------------등록 페이지---------------------등록 페이지--------------------
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  /* width: 1200px; */
+  width: 70em;
   /* height: 1847px; */
   border: 1px solid black;
   margin: 10%;
@@ -44,15 +45,17 @@ export const Wrapper = styled.div`
   padding-bottom: 100px;
   padding-left: 102px;
   padding-right: 102px;
+  margin: 50px 50px 0px 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* border: 1px solid #640064; */
   border: none;
-  box-shadow: 1px 1px 13px;
+  border-radius: 1em;
+  box-shadow: 1px 1px 13px #6400ff;
   /* background-color: rgba(250, 240, 230); */
-  background-color: #000000;
-  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.1);
   color: #fff;
 `;
 
@@ -61,14 +64,13 @@ export const RowBox = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 36px;
   font-weight: bold;
   background-color: transparent;
 `;
 
 export const WriterWrapper = styled.div`
-  width: 100%;
+  width: 996px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -76,19 +78,19 @@ export const WriterWrapper = styled.div`
 `;
 
 export const Writer = styled.input`
-  width: 486px;
+  width: 460px;
   height: 52px;
   padding-left: 16px;
-  background-color: #000033;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid #6600ff;
   border-radius: 5px;
 `;
 
 export const Password = styled.input`
-  width: 486px;
+  width: 460px;
   height: 52px;
   padding-left: 16px;
-  background-color: #000033;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid #6600ff;
   border-radius: 5px;
 `;
@@ -107,7 +109,7 @@ export const Subject = styled.input`
   width: 996px;
   height: 52px;
   padding-left: 16px;
-  background-color: #000033;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid #6600ff;
   border-radius: 5px;
 `;
@@ -117,7 +119,7 @@ export const Contents = styled.textarea`
   height: 480px;
   padding-left: 16px;
   padding: 14px;
-  background-color: #000033;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid #6600ff;
   border-radius: 5px;
 `;
@@ -132,7 +134,7 @@ export const Zipcode = styled.input`
   height: 52px;
   padding-left: 16px;
   margin-right: 5px;
-  background-color: #000033;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid #6600ff;
   border-radius: 5px;
 `;
@@ -142,7 +144,7 @@ export const SearchButton = styled.button`
   height: 52px;
   margin-left: 16px;
   cursor: pointer;
-  color: #000033;
+  background-color: rgba(0, 0, 0, 0.1);
 `;
 
 export const Address = styled.input`
@@ -150,7 +152,7 @@ export const Address = styled.input`
   height: 52px;
   margin-top: 16px;
   padding-left: 16px;
-  background-color: #000033;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid #6600ff;
   border-radius: 5px;
 `;
@@ -159,7 +161,7 @@ export const Youtube = styled.input`
   width: 996px;
   height: 52px;
   padding-left: 16px;
-  background-color: #000033;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid #6600ff;
   border-radius: 5px;
 `;

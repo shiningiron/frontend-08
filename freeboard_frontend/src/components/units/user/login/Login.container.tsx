@@ -33,6 +33,14 @@ export default function LoginPage() {
 
   const onClickLogin = async () => {
     try {
+      if (!email) {
+        Modal.error({ content: "이메일을 입력해주세요" });
+        return;
+      } else if (!password) {
+        Modal.error({ content: "비밀번호를 입력해주세요" });
+        return;
+      }
+
       // 1. login해서 token 받아오기
       const result = await loginUser({
         variables: { email, password },
@@ -64,9 +72,11 @@ export default function LoginPage() {
       localStorage.setItem("userInfo", JSON.stringify(userInfo)); // 임시사용(나중에 지울 예정);
 
       // 4. login 성공 페이지로 이동하기
-      alert("로그인에 성공하였습니다!");
+      Modal.success({
+        content: `로그인에 성공하였습니다! ${userInfo.name}님 환영합니다.`,
+      });
       router.push("/freeboard");
-    } catch {
+    } catch (error) {
       Modal.error({ content: Error.name });
     }
   };

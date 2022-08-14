@@ -64,9 +64,9 @@ export default function CommentsItem(props: any) {
   };
 
   return (
-    <div>
+    <Cmt.ListWrapper>
       {isEdit === false && (
-        <Cmt.Box key={props.el._id}>
+        <Cmt.ListBox key={props.el._id}>
           <Cmt.WriterInfoBox>
             <Cmt.Thumb>
               <Cmt.ImgIcon src="/images/purple.jpeg" />
@@ -88,11 +88,11 @@ export default function CommentsItem(props: any) {
             <DeleteCommentModal id={props.el._id} />
             <Cmt.EditTool onClick={onClickEdit} />
           </Cmt.Tools>
-        </Cmt.Box>
+        </Cmt.ListBox>
       )}
 
       {isEdit === true && (
-        <Cmt.Box key={props.el._id}>
+        <Cmt.ListBox key={props.el._id}>
           <Cmt.WriterInfoBox>
             <Cmt.Thumb>
               <Cmt.ImgIcon src="/images/purple.jpeg" />
@@ -105,7 +105,7 @@ export default function CommentsItem(props: any) {
               </Cmt.ProfileCreatedTime>
             </Cmt.ProfileBox>
           </Cmt.WriterInfoBox>
-          <Cmt.TextArea
+          <Cmt.CommentInput
             onChange={onChangeContents}
             defaultValue={props.el.contents || ""}
           />
@@ -124,8 +124,8 @@ export default function CommentsItem(props: any) {
               onClickEditFin={onClickEditFin}
             />
           </Cmt.Tools>
-        </Cmt.Box>
+        </Cmt.ListBox>
       )}
-    </div>
+    </Cmt.ListWrapper>
   );
 }

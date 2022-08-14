@@ -2,7 +2,7 @@ import * as B from "../../../../commons/styles/board.styles";
 import { IDetailBoardUIProps } from "./detailBoard.types";
 import { getDate } from "../../../../commons/libraries/utils";
 import React from "react";
-import CommentContainer from "../../comments/create/createComment.container";
+// import CommentContainer from "../../comments/create/createComment.container";
 
 export default function DetailBoardUI(props: IDetailBoardUIProps) {
   return (
@@ -43,15 +43,17 @@ export default function DetailBoardUI(props: IDetailBoardUIProps) {
             ))}
         </B.ContentsImgBox>
         <B.DetailContents>{props.data?.fetchBoard?.contents}</B.DetailContents>
-        <B.PlayerBox>
-          <B.Player
-            url={`${props.data?.fetchBoard.youtubeUrl}`}
-            muted={true}
-            playing={true}
-            loop={true}
-            controls={true}
-          />
-        </B.PlayerBox>
+        {props.data?.fetchBoard.youtubeUrl && (
+          <B.PlayerBox>
+            <B.Player
+              url={`${props.data?.fetchBoard.youtubeUrl}`}
+              muted={true}
+              playing={true}
+              loop={true}
+              controls={true}
+            />
+          </B.PlayerBox>
+        )}
       </B.ContentsBox>
       <B.LikeDislikeBox>
         <B.LikeDislikeBack onClick={props.onClickLike}>

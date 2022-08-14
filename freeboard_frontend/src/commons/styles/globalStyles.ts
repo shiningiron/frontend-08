@@ -9,7 +9,9 @@ export const globalStyles = css`
     font-family: "myfont";
     /* color: #fff; */
   }
-
+  html {
+    font-size: 15px;
+  }
   body {
     /* min-height: 100vh; */
     background: linear-gradient(to bottom, #6400ff, #d8bfd8) fixed;

@@ -7,6 +7,18 @@ export const FETCH_USED_ITEM = gql`
       name
       remarks
       contents
+      price
+      seller {
+        _id
+        email
+        name
+        createdAt
+      }
     }
+  }
+`;
+export const DELETE_USED_ITEM = gql`
+  mutation deleteUseditem($useditemId: ID!) {
+    deleteUseditem(useditemId: $useditemId)
   }
 `;

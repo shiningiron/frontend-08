@@ -45,11 +45,19 @@ export default function Navi01UI() {
             </Nav.Link>
           </Nav.List>
           <Nav.List>
-            <Nav.Link href="http://localhost:3000/usedItem/new">
+            <Nav.Link href="http://localhost:3000/usedItem/list">
               <Nav.IconBox className="icon">
                 <Nav.UsedMarket />
               </Nav.IconBox>
               <Nav.TitleBox className="title">UsedMarket</Nav.TitleBox>
+            </Nav.Link>
+          </Nav.List>
+          <Nav.List>
+            <Nav.Link href="http://localhost:3000/usedItem/payment/loading">
+              <Nav.IconBox className="icon">
+                <Nav.Payment />
+              </Nav.IconBox>
+              <Nav.TitleBox className="title">Payment</Nav.TitleBox>
             </Nav.Link>
           </Nav.List>
         </Nav.ListWrapper>

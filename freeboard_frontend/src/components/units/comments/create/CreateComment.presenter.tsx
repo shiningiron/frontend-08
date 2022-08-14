@@ -19,7 +19,8 @@ export default function CommentUI(props: ICreateCommentUIProps) {
         </Cmt.ProfileBox>
       </Cmt.WriterInfoBox>
       <Cmt.WriteBox>
-        <Cmt.TextArea
+        <Cmt.CommentInput
+          type="text"
           onChange={props.onChangeComments}
           placeholder="댓글을 입력해주세요"
           value={props.contents}
