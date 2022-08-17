@@ -32,6 +32,7 @@ const FETCH_USED_ITEMS = gql`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 const TopWrapper = styled.div`
   display: flex;
@@ -43,7 +44,7 @@ const ListWrapper = styled.div`
   width: 50rem;
   height: 33rem;
   overflow: scroll;
-  -ms-overflow-style: none;
+  /* -ms-overflow-style: none; */
   margin-right: 30px;
   &::-webkit-scrollbar {
     display: none;
@@ -53,10 +54,7 @@ const BoardList = styled.ul`
   display: flex;
   flex-direction: column;
 `;
-const SideBox = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+
 const Today = styled.div`
   position: sticky;
   display: flex;
@@ -130,9 +128,9 @@ export default function UsedItemList() {
     setToday(todayPicks);
     router.push(`/usedItem/detail/${data._id}`);
   };
-  const onChangeKeyword = (value: string) => {
-    setKeyword(value);
-  };
+  // const onChangeKeyword = (value: string) => {
+  //   setKeyword(value);
+  // };
 
   useEffect(() => {
     const result = JSON.parse(

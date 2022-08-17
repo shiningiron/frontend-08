@@ -55,6 +55,7 @@ export const TextToken = styled.span`
 
 interface IListItemsProps {
   el: IUseditem;
+  isCancel: boolean;
   onClickToUsedItem: (data: IUseditem) => () => void;
 }
 
@@ -101,7 +102,10 @@ export default function ListItems(props: IListItemsProps) {
         </ItemBox>
         {isCancel ? (
           <BasketBox>
-            <CancelBasketIcon onClick={onClickBasket(props.el)} isCancel />
+            <CancelBasketIcon
+              onClick={onClickBasket(props.el)}
+              isCancel={isCancel}
+            />
           </BasketBox>
         ) : (
           <BasketBox>

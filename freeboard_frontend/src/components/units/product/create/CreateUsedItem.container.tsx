@@ -5,8 +5,14 @@ import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import CreateUsedItemUI from "./createUsedItem.presenter";
-import { CREATE_USED_ITEM, UPDATE_USED_ITEM } from "./createUsedItem.queries";
+import {
+  CREATE_USED_ITEM,
+  UPDATE_USED_ITEM,
+  UPLOAD_FILE,
+} from "./createUsedItem.queries";
 import { ICreateUsedItemContainerProps } from "./createUsedItem.types";
+import { filesState } from "../../../../commons/store";
+import { useRecoilState } from "recoil";
 
 const schema = yup.object({
   name: yup.string().required("상품명을 입력해주세요"),
@@ -24,7 +30,9 @@ export default function CreateUsedItemContainer(
   props: ICreateUsedItemContainerProps
 ) {
   const router = useRouter();
+  const [files] = useRecoilState(filesState);
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
+  const [uploadFile] = useMutation(UPLOAD_FILE);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
   const { register, handleSubmit, formState, setValue, trigger } = useForm({
     resolver: yupResolver(schema),
@@ -40,6 +48,14 @@ export default function CreateUsedItemContainer(
   };
 
   const onClickButton = async (data) => {
+    const results = await Promise.all(
+      // files - [파일0, 파일1, 파일2]
+      files.map((el) => el && uploadFile({ variables: { file: el } }))
+
+      // files.map - [uploadFile({variables:{file: 파일0}}), uploadFile({variables:{file: 파일1}}), uploadFile({variables:{file: 파일2}})]
+    );
+    console.log(results); // const result = [resultFile0, resultFile1, resultFile2]
+    const resultUrls = results.map((el) => (el ? el.data.uploadFile.url : "")); // const resultUrls = [url0, url1, url2]
     console.log(data);
     try {
       const result = await createUseditem({
@@ -50,6 +66,7 @@ export default function CreateUsedItemContainer(
             // price: data.price,
             // contents: data.contents,
             ...data,
+            images: resultUrls,
           },
         },
       });

@@ -11,6 +11,13 @@ export const CREATE_USED_ITEM = gql`
     }
   }
 `;
+export const UPLOAD_FILE = gql`
+  mutation uploadFile($file: Upload!) {
+    uploadFile(file: $file) {
+      url
+    }
+  }
+`;
 // 수정 페이지 ==================================
 export const UPDATE_USED_ITEM = gql`
   mutation updateUseditem(

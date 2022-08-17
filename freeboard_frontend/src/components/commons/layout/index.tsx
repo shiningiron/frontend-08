@@ -15,7 +15,6 @@ interface ILayoutProps {
 const SHOW_BANNERS = ["/"];
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
-  console.log(router);
 
   // const isHiddenBanner = HIDDEN_BANNERS.includes(router.asPath);
   const isShowBanner = SHOW_BANNERS.includes(router.asPath);

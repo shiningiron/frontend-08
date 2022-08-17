@@ -75,6 +75,9 @@ export default function KakaoMapPage() {
         );
 
         const geocoder = new window.kakao.maps.services.Geocoder();
+        window.kakao.maps.event.addListener(map, "idle", function () {
+          searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+        });
         function searchAddrFromCoords(coords, callback) {
           // 좌표로 행정동 주소 정보를 요청합니다
           geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);

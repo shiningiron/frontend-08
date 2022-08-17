@@ -71,7 +71,7 @@ export default function CallbackPromiseAsyncAwaitPage() {
         <>
             <button onClick={onClickCallback}>Callback 요청</button>
             <button onClick={onClickPromise}>Promise 요청</button>
-            <button onClick={onClickAsyncAwait}>AsyncAwait 요청</button>
+            {/* <button onClick={onClickAsyncAwait}>AsyncAwait 요청</button> */}
         </>
     );
 }

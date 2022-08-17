@@ -34,13 +34,17 @@ export default function FetchUsedItemContainer() {
     router.push(`/usedItem/list`);
   };
   const onClickDelete = async () => {
-    const result = await deleteUseditem({
-      variables: { useditemId: router.query.useditemId },
-      // refetchQueries: [{ query: FETCH_USED_ITEMS }],
-    });
-    Modal.info({ content: "게시글이 삭제 되었습니다." });
-    router.push("/freeboard");
-    console.log(result);
+    try {
+      const result = await deleteUseditem({
+        variables: { useditemId: router.query.useditemId },
+        // refetchQueries: [{ query: FETCH_USED_ITEMS }],
+      });
+      Modal.info({ content: "게시글이 삭제 되었습니다." });
+      router.push("/freeboard");
+      console.log(result);
+    } catch (error) {
+      Modal.error({ content: error.message });
+    }
   };
 
   return (

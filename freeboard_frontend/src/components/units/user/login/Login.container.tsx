@@ -3,7 +3,11 @@ import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import { useRecoilState } from "recoil";
-import { accessTokenState, userInfoState } from "../../../../commons/store";
+import {
+  accessTokenState,
+  logState,
+  userInfoState,
+} from "../../../../commons/store";
 import {
   IMutation,
   IMutationLoginUserArgs,
@@ -14,6 +18,7 @@ import { FETCH_USER_LOGGED_IN, LOGIN_USER } from "./login.queries";
 export default function LoginPage() {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+  const [isLogout, setIsLogout] = useRecoilState(logState);
   const router = useRouter();
   const client = useApolloClient();
 
@@ -68,13 +73,15 @@ export default function LoginPage() {
       // 3. 글로벌 스테이트에 저장하기
       setAccessToken(accessToken || "");
       setUserInfo(userInfo || {});
-      localStorage.setItem("accessToken", accessToken); // 임시사용(나중에 지울 예정);
-      localStorage.setItem("userInfo", JSON.stringify(userInfo)); // 임시사용(나중에 지울 예정);
+      // localStorage.setItem("accessToken", accessToken);
+      // localStorage.setItem("userInfo", JSON.stringify(userInfo));
 
       // 4. login 성공 페이지로 이동하기
       Modal.success({
         content: `로그인에 성공하였습니다! ${userInfo.name}님 환영합니다.`,
       });
+      localStorage.setItem("log", JSON.stringify({ logoutUser: false }));
+      setIsLogout(false);
       router.push("/freeboard");
     } catch (error) {
       Modal.error({ content: Error.name });

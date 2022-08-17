@@ -35,6 +35,30 @@ export const QuillEditor = styled(ReactQuill)`
   }
 `;
 
+// =============== 이미지 업로드 UI ==================
+
+export const UploadWrapper = styled.div`
+  display: flex;
+`;
+export const UploadPreview = styled.img`
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+`;
+export const UploadButton = styled.button`
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+`;
+
 // 상품 상세보기 ----------------------------------------------
 
 export const Wrapper = styled.div`

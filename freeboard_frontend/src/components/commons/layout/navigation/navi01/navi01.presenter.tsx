@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as Nav from "./navi01.styles";
+import Link from "next/link";
 
 export default function Navi01UI() {
   const [toggle, setToggle] = useState(false);
@@ -21,44 +22,54 @@ export default function Navi01UI() {
             </Nav.Link>
           </Nav.List>
           <Nav.List>
-            <Nav.Link href="http://localhost:3000/">
-              <Nav.IconBox className="icon">
-                <Nav.HomeEarthIcon />
-              </Nav.IconBox>
-              <Nav.TitleBox className="title">Home</Nav.TitleBox>
-            </Nav.Link>
+            <Link href="http://localhost:3000/">
+              <Nav.Link>
+                <Nav.IconBox className="icon">
+                  <Nav.HomeEarthIcon />
+                </Nav.IconBox>
+                <Nav.TitleBox className="title">Home</Nav.TitleBox>
+              </Nav.Link>
+            </Link>
           </Nav.List>
           <Nav.List>
-            <Nav.Link href="http://localhost:3000/">
-              <Nav.IconBox className="icon">
-                <Nav.PersonIcon />
-              </Nav.IconBox>
-              <Nav.TitleBox className="title">Mypage</Nav.TitleBox>
-            </Nav.Link>
+            <Link href="http://localhost:3000/">
+              <Nav.Link>
+                <Nav.IconBox className="icon">
+                  <Nav.PersonIcon />
+                </Nav.IconBox>
+                <Nav.TitleBox className="title">Mypage</Nav.TitleBox>
+              </Nav.Link>
+            </Link>
           </Nav.List>
           <Nav.List>
-            <Nav.Link href="http://localhost:3000/freeboard">
-              <Nav.IconBox className="icon">
-                <Nav.BoardsIcon />
-              </Nav.IconBox>
-              <Nav.TitleBox className="title">Boards</Nav.TitleBox>
-            </Nav.Link>
+            <Link href="http://localhost:3000/freeboard">
+              <Nav.Link>
+                <Nav.IconBox className="icon">
+                  <Nav.BoardsIcon />
+                </Nav.IconBox>
+                <Nav.TitleBox className="title">Boards</Nav.TitleBox>
+              </Nav.Link>
+            </Link>
           </Nav.List>
           <Nav.List>
-            <Nav.Link href="http://localhost:3000/usedItem/list">
-              <Nav.IconBox className="icon">
-                <Nav.UsedMarket />
-              </Nav.IconBox>
-              <Nav.TitleBox className="title">UsedMarket</Nav.TitleBox>
-            </Nav.Link>
+            <Link href="http://localhost:3000/usedItem/list">
+              <Nav.Link>
+                <Nav.IconBox className="icon">
+                  <Nav.UsedMarket />
+                </Nav.IconBox>
+                <Nav.TitleBox className="title">UsedMarket</Nav.TitleBox>
+              </Nav.Link>
+            </Link>
           </Nav.List>
           <Nav.List>
-            <Nav.Link href="http://localhost:3000/usedItem/payment/loading">
-              <Nav.IconBox className="icon">
-                <Nav.Payment />
-              </Nav.IconBox>
-              <Nav.TitleBox className="title">Payment</Nav.TitleBox>
-            </Nav.Link>
+            <Link href="http://localhost:3000/usedItem/payment/loading">
+              <Nav.Link>
+                <Nav.IconBox className="icon">
+                  <Nav.Payment />
+                </Nav.IconBox>
+                <Nav.TitleBox className="title">Payment</Nav.TitleBox>
+              </Nav.Link>
+            </Link>
           </Nav.List>
         </Nav.ListWrapper>
         <Nav.ToggleMenu

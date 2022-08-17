@@ -3,6 +3,7 @@ import ButtonVc from "../../../commons/buttons/vc";
 import { ICreateUsedItemUIProps } from "./createUsedItem.types";
 import { QuillEditor } from "../../../../commons/styles/usedItem.styles";
 import KakaoMapPage from "../../../commons/kakaoMap";
+import ItemImageUploadContainer from "../../../commons/usedItemImageUpload/itemImageUpload.container";
 
 export default function CreateUsedItemUI(props: ICreateUsedItemUIProps) {
   return (
@@ -42,6 +43,7 @@ export default function CreateUsedItemUI(props: ICreateUsedItemUIProps) {
       />
       <div>{props.formState.errors.contents?.message}</div>
       <KakaoMapPage />
+      <ItemImageUploadContainer />
     </form>
   );
 }

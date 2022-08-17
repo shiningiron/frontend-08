@@ -1806,6 +1806,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-lazyload@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@types/react-lazyload/-/react-lazyload-3.2.0.tgz#b763f8f0c724df2c969d7e0b3a56c6aa2720fa1f"
+  integrity sha512-4+r+z8Cf7L/mgxA1vl5uHx5GS/8gY2jqq2p5r5WCm+nUsg9KilwQ+8uaJA3EUlLj57AOzOfGGwwRJ5LOVl8fwA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-slick@^0.23.10":
   version "0.23.10"
   resolved "https://registry.npmjs.org/@types/react-slick/-/react-slick-0.23.10.tgz"
@@ -1844,6 +1851,11 @@
   integrity sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==
   dependencies:
     "@types/node" "*"
+
+"@types/zen-observable@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.3.tgz#781d360c282436494b32fe7d9f7f8e64b3118aa3"
+  integrity sha512-fbF6oTd4sGGy0xjHPKAt+eS2CrxJ3+6gQ3FGcBoIJR2TLAyCkCyI8JqZNy+FeON0AhVgNJoUumVoZQjBFUqHkw==
 
 "@typescript-eslint/eslint-plugin@^5.30.7":
   version "5.30.7"
@@ -3557,9 +3569,9 @@ graphql-config@^4.3.1:
     minimatch "4.2.1"
     string-env-interpolation "1.0.1"
 
-graphql-request@^4.0.0:
+graphql-request@^4.0.0, graphql-request@^4.3.0:
   version "4.3.0"
-  resolved "https://registry.npmjs.org/graphql-request/-/graphql-request-4.3.0.tgz"
+  resolved "https://registry.yarnpkg.com/graphql-request/-/graphql-request-4.3.0.tgz#b934e08fcae764aa2cdc697d3c821f046cb5dbf2"
   integrity sha512-2v6hQViJvSsifK606AliqiNiijb1uwWp6Re7o0RTyH+uRTv/u7Uqm2g4Fjq/LgZIzARB38RZEvVBFOQOVdlBow==
   dependencies:
     cross-fetch "^3.1.5"
@@ -5280,6 +5292,11 @@ react-is@^17.0.2:
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-lazyload@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-lazyload/-/react-lazyload-3.2.0.tgz#497bd06a6dbd7015e3376e1137a67dc47d2dd021"
+  integrity sha512-zJlrG8QyVZz4+xkYZH5v1w3YaP5wEFaYSUWC4CT9UXfK75IfRAIEdnyIUF+dXr3kX2MOtL1lUaZmaQZqrETwgw==
+
 react-player@^2.10.1:
   version "2.10.1"
   resolved "https://registry.npmjs.org/react-player/-/react-player-2.10.1.tgz"
@@ -6263,7 +6280,7 @@ zen-observable-ts@^1.2.5:
   dependencies:
     zen-observable "0.8.15"
 
-zen-observable@0.8.15:
+zen-observable@0.8.15, zen-observable@^0.8.15:
   version "0.8.15"
   resolved "https://registry.npmjs.org/zen-observable/-/zen-observable-0.8.15.tgz"
   integrity sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ==
