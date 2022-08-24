@@ -15,11 +15,21 @@ export default function FetchUsedItemUI(props: IFetchUsedItemUIProps) {
       </F.HeaderBox>
       <F.Line />
       <F.ItemInfoBox>
-        <F.Seller>{props.data?.fetchUseditem.seller.name}</F.Seller>
+        <F.Seller>{props.data?.fetchUseditem.seller?.name}</F.Seller>
         <F.Remarks>{props.data?.fetchUseditem.remarks}</F.Remarks>
         <F.Price>{props.data?.fetchUseditem.price}</F.Price>
       </F.ItemInfoBox>
       <F.ContentsBox>
+        <div>
+          {props.data?.fetchUseditem.images
+            ?.filter((el: string) => el !== "")
+            .map((el: string) => (
+              <F.ImgCard
+                key={el}
+                src={`https://storage.googleapis.com/${el}`}
+              />
+            ))}
+        </div>
         {typeof window !== "undefined" ? (
           <F.Contents
             dangerouslySetInnerHTML={{

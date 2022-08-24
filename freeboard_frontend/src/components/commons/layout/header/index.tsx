@@ -44,6 +44,8 @@ function LayoutHeader() {
     router.push("/");
   };
 
+  console.log("헤더에서", userInfo);
+
   return (
     <Wrapper>
       {isLogout ? (
@@ -53,7 +55,7 @@ function LayoutHeader() {
         </>
       ) : (
         <>
-          <div>{`${userInfo.name}님 환영합니다.`}</div>
+          <div>{`${userInfo?.name || ""}님 환영합니다.`}</div>
           <div onClick={LogOut} style={{ cursor: "pointer" }}>
             로그아웃
           </div>

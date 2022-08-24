@@ -103,6 +103,12 @@ export const Remarks = styled.div`
   font-size: 2em;
   color: #fff;
 `;
+export const ImgCard = styled.img`
+  width: 10rem;
+  height: 10rem;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.1);
+`;
 export const ContentsBox = styled.div``;
 export const Contents = styled.div``;
 

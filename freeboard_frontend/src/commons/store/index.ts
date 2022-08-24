@@ -30,7 +30,12 @@ export const filesState = atom({
 
 export const logState = atom({
   key: "logState",
-  default: false,
+  default: true,
+});
+
+export const resultImagesState = atom({
+  key: "resultImagesState",
+  default: ["", "", ""],
 });
 
 // export const fileState = atom({

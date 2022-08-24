@@ -11,8 +11,13 @@ import {
   UPLOAD_FILE,
 } from "./createUsedItem.queries";
 import { ICreateUsedItemContainerProps } from "./createUsedItem.types";
-import { filesState } from "../../../../commons/store";
+import {
+  filesState,
+  imageUrlsState,
+  resultImagesState,
+} from "../../../../commons/store";
 import { useRecoilState } from "recoil";
+import { useEffect } from "react";
 
 const schema = yup.object({
   name: yup.string().required("상품명을 입력해주세요"),
@@ -30,6 +35,7 @@ export default function CreateUsedItemContainer(
   props: ICreateUsedItemContainerProps
 ) {
   const router = useRouter();
+  const [resultImages, setResultImages] = useRecoilState(resultImagesState);
   const [files] = useRecoilState(filesState);
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [uploadFile] = useMutation(UPLOAD_FILE);
@@ -49,22 +55,15 @@ export default function CreateUsedItemContainer(
 
   const onClickButton = async (data) => {
     const results = await Promise.all(
-      // files - [파일0, 파일1, 파일2]
       files.map((el) => el && uploadFile({ variables: { file: el } }))
-
-      // files.map - [uploadFile({variables:{file: 파일0}}), uploadFile({variables:{file: 파일1}}), uploadFile({variables:{file: 파일2}})]
     );
-    console.log(results); // const result = [resultFile0, resultFile1, resultFile2]
-    const resultUrls = results.map((el) => (el ? el.data.uploadFile.url : "")); // const resultUrls = [url0, url1, url2]
+
+    const resultUrls = results.map((el) => (el ? el.data.uploadFile.url : ""));
     console.log(data);
     try {
       const result = await createUseditem({
         variables: {
           createUseditemInput: {
-            // name: data.name,
-            // remarks: data.remarks,
-            // price: data.price,
-            // contents: data.contents,
             ...data,
             images: resultUrls,
           },
@@ -78,20 +77,36 @@ export default function CreateUsedItemContainer(
   };
 
   const onClickUpdate = async (data) => {
+    const results = await Promise.all(
+      // files - [파일0, 파일1, 파일2]
+      files.map((el) => el && uploadFile({ variables: { file: el } }))
+
+      // files.map - [uploadFile({variables:{file: 파일0}}), uploadFile({variables:{file: 파일1}}), uploadFile({variables:{file: 파일2}})]
+    );
+    console.log(results); // const result = [resultFile0, resultFile1, resultFile2]
+    const resultUrls = results.map((el) => (el ? el.data.uploadFile.url : "")); // const resultUrls = [url0, url1, url2]
+    setResultImages(resultUrls);
     try {
       const result = await updateUseditem({
         variables: {
           useditemId: router.query.useditemId,
           updateUseditemInput: {
             ...data,
+            images: resultUrls,
           },
         },
       });
+      console.log(result);
       router.push(`/usedItem/detail/${result.data.updateUseditem._id}`);
     } catch (error) {
       Modal.error({ content: error.message });
     }
   };
+  // useEffect(() => {
+  //   if (props.data?.fetchUseditem.images?.length) {
+  //     setImageUrls([...props.data?.fetchUseditem.images]);
+  //   }
+  // }, [props.data]);
 
   return (
     <CreateUsedItemUI

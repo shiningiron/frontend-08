@@ -16,7 +16,7 @@ export default function LoadingPage() {
   console.log(selected);
   const onClickPayment = () => {
     const IMP = window.IMP; // 생략 가능
-    IMP.init("imp18504683"); // Example: imp00000000
+    IMP.init("imp49910675"); // Example: imp00000000
 
     IMP.request_pay(
       {

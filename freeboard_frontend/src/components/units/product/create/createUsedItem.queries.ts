@@ -33,6 +33,7 @@ export const UPDATE_USED_ITEM = gql`
       remarks
       contents
       price
+      images
     }
   }
 `;

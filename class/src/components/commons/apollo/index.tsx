@@ -9,8 +9,13 @@ import { onError } from "@apollo/client/link/error";
 import { createUploadLink } from "apollo-upload-client";
 
 import { ReactNode, useEffect } from "react";
-import { useRecoilState } from "recoil";
-import { accessTokenState, userInfoState } from "../../../commons/store";
+import { useRecoilState, useRecoilValueLoadable } from "recoil";
+import {
+    accessTokenState,
+    isLoadedState,
+    restoreAccessTokenLoadable,
+    userInfoState,
+} from "../../../commons/store";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
 
 const APOLLO_CACHE = new InMemoryCache();
@@ -22,6 +27,8 @@ interface IApolloSettingProps {
 export default function ApolloSetting(props: IApolloSettingProps) {
     const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
     const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+    const [isLoaded, setIsLoaded] = useRecoilState(isLoadedState);
+    const aaa = useRecoilValueLoadable(restoreAccessTokenLoadable);
     // 1. 프리렌더링 예제 - process.browser 방법
     // if (process.browser) {
     //     console.log("지금은 브라우저다!!");
@@ -54,12 +61,32 @@ export default function ApolloSetting(props: IApolloSettingProps) {
         // const accessToken = localStorage.getItem("accessToken") || "";
         // const userInfo = localStorage.getItem("userInfo");
         // setAccessToken(accessToken);
-
         // if (!accessToken || !userInfo) return;
         // setUserInfo(JSON.parse(userInfo));
-
         // 2. 새로운 방식(refreshToken 이후)
-        getAccessToken().then((newAccessToken) => {
+        // getAccessToken().then((newAccessToken) => {
+        //     setAccessToken(newAccessToken);
+        // });
+        //
+        //
+        //
+        // [해결방법: 1번째 - restoreAccessToken을 두 번 요청하기!!]
+        // getAccessToken().then((newAccessToken) => {
+        //     setAccessToken(newAccessToken);
+        // });
+        //
+        //
+        //
+        // [해결방법: 2번째 - 나만의 로딩 활용하기]
+        // getAccessToken().then((newAccessToken) => {
+        //     setAccessToken(newAccessToken);
+        //     setIsLoaded(true)
+        // });
+        //
+        //
+        //
+        // [해결방법: 3번째 - Recoil selector 활용하기]
+        aaa.toPromise().then((newAccessToken) => {
             setAccessToken(newAccessToken);
         });
     }, []);

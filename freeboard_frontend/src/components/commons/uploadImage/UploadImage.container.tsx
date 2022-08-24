@@ -35,7 +35,7 @@ export default function UploadImageContainer(props: any) {
     <UploadImageUI
       fileRef={fileRef}
       imageUrl={props.imageUrl}
-      defaultFileUrl={props.defaultFileUrl}
+      // defaultFileUrl={props.defaultFileUrl}
       onClickImage={onClickImage}
       onChangeFile={onChangeFile}
     />

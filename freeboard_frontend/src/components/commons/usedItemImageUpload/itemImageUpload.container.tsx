@@ -1,15 +1,22 @@
 import { ChangeEvent, useRef } from "react";
 import { useRecoilState } from "recoil";
 import { checkValidationFile } from "../../../commons/libraries/validationFile";
-import { filesState, imageUrlsState } from "../../../commons/store";
+import {
+  fileCheckState,
+  filesState,
+  imageUrlsState,
+} from "../../../commons/store";
 import ItemImageUploadUI from "./itemImageUpload.presenter";
+import { IItemImageUploadContainerProps } from "./itemImageUpload.types";
 
-export default function ItemImageUploadContainer() {
+export default function ItemImageUploadContainer(
+  props: IItemImageUploadContainerProps
+) {
   const [imageUrls, setImageUrls] = useRecoilState(imageUrlsState);
   const [files, setFiles] = useRecoilState(filesState);
 
   const fileRef = useRef<HTMLInputElement>(null);
-  const onClickImage = () => {
+  const onClickImage = (index: number) => () => {
     fileRef.current?.click();
   };
 
@@ -25,14 +32,16 @@ export default function ItemImageUploadContainer() {
       fileReader.onload = (data) => {
         if (typeof data.target?.result === "string") {
           console.log(data.target?.result);
-
           const tempUrls = [...imageUrls];
+          console.log("tempUrls", tempUrls);
           tempUrls[index] = data.target?.result;
           setImageUrls(tempUrls);
 
           const tempFiles = [...files];
+          console.log("tempFiles", tempFiles);
           tempFiles[index] = file;
           setFiles(tempFiles);
+          // console.log(files, files[props.index]);
         }
       };
     };
@@ -42,6 +51,9 @@ export default function ItemImageUploadContainer() {
       onChangeFile={onChangeFile}
       onClickImage={onClickImage}
       fileRef={fileRef}
+      index={props.index}
+      isEdit={props.isEdit}
+      data={props.data}
     />
   );
 }

@@ -4,8 +4,12 @@ import { ICreateUsedItemUIProps } from "./createUsedItem.types";
 import { QuillEditor } from "../../../../commons/styles/usedItem.styles";
 import KakaoMapPage from "../../../commons/kakaoMap";
 import ItemImageUploadContainer from "../../../commons/usedItemImageUpload/itemImageUpload.container";
+import { useRecoilState } from "recoil";
+import { imageUrlsState } from "../../../../commons/store";
+import { v4 as uuidv4 } from "uuid";
 
 export default function CreateUsedItemUI(props: ICreateUsedItemUIProps) {
+  const [imageUrls] = useRecoilState(imageUrlsState);
   return (
     <form
       onSubmit={props.handleSubmit(
@@ -43,7 +47,14 @@ export default function CreateUsedItemUI(props: ICreateUsedItemUIProps) {
       />
       <div>{props.formState.errors.contents?.message}</div>
       <KakaoMapPage />
-      <ItemImageUploadContainer />
+      {imageUrls.map((_, index) => (
+        <ItemImageUploadContainer
+          key={uuidv4()}
+          index={index}
+          isEdit={props.isEdit}
+          data={props.data}
+        />
+      ))}
     </form>
   );
 }

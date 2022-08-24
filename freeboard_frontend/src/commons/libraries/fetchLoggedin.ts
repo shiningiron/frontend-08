@@ -24,8 +24,8 @@ export async function getUserInfo(token) {
       }
     );
     const result = await graphQLClient.request(FETCH_USER_LOGGED_IN);
-    const newUserInfo = result.fetchUserLoggedIn;
-    console.log(newUserInfo);
+    const newUserInfo = await result.fetchUserLoggedIn;
+    console.log("apollo", newUserInfo);
     return newUserInfo;
   } catch (error) {
     if (error instanceof Error) console.log(error.message);

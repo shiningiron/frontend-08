@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import { getDate } from "../../../src/commons/libraries/utils";
+import { v4 as uuidv4 } from "uuid";
 import {
   IQuery,
   IQueryFetchUseditemsArgs,
@@ -12,6 +13,8 @@ import {
 import BoardListSearch from "../../../src/components/commons/searchbar/boardlistSearch/boardListSearch.container";
 import ListItems from "../../../src/components/units/product/list/listItems";
 import TodayItemList from "../../../src/components/units/product/list/todayItem";
+import { useRecoilState } from "recoil";
+import { imageUrlsState } from "../../../src/commons/store";
 
 const FETCH_USED_ITEMS = gql`
   query fetchUseditems($page: Int) {
@@ -85,6 +88,7 @@ const NewUsedItemBtn = styled.button`
 export default function UsedItemList() {
   const router = useRouter();
   const [today, setToday] = useState<IUseditem[]>([]);
+  const [imageUrls, setImageUrls] = useRecoilState(imageUrlsState);
   const [keyword, setKeyword] = useState("");
   const { data, fetchMore, refetch } = useQuery<
     Pick<IQuery, "fetchUseditems">,
@@ -126,6 +130,7 @@ export default function UsedItemList() {
     todayPicks.push(newPick);
     localStorage.setItem(`${getDate(new Date())}`, JSON.stringify(todayPicks));
     setToday(todayPicks);
+    setImageUrls(["", "", ""]);
     router.push(`/usedItem/detail/${data._id}`);
   };
   // const onChangeKeyword = (value: string) => {
@@ -151,7 +156,7 @@ export default function UsedItemList() {
             <BoardList>
               {data?.fetchUseditems.map((el) => (
                 <ListItems
-                  key={el._id}
+                  key={uuidv4()}
                   el={el}
                   onClickToUsedItem={onClickToUsedItem}
                 />
