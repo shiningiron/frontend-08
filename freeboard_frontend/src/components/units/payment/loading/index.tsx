@@ -1,14 +1,33 @@
+import { gql, useMutation } from "@apollo/client";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
+import { useRecoilState } from "recoil";
+import { userInfoState } from "../../../../commons/store";
 
 declare const window: typeof globalThis & {
   IMP: any;
 };
 
+const CREATE_POINT_LOADING = gql`
+  mutation createPointTransactionOfLoading($impUid: ID!) {
+    createPointTransactionOfLoading(impUid: $impUid) {
+      _id
+      impUid
+      amount
+      balance
+      status
+      statusDetail
+      createdAt
+    }
+  }
+`;
+
 export default function LoadingPage() {
   const router = useRouter();
   const [selected, setSelected] = useState(0);
+  const [userInfo] = useRecoilState(userInfoState);
+  const [createPointTransactionOfLoading] = useMutation(CREATE_POINT_LOADING);
 
   const onChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelected(Number(event.target.value));
@@ -24,13 +43,13 @@ export default function LoadingPage() {
         pg: "nice",
         pay_method: "card",
         // merchant_uid: "ORD20180131-0000011",
-        name: "노르웨이 회전 의자",
+        name: userInfo.name,
         amount: selected,
-        buyer_email: "gildong@gmail.com",
+        buyer_email: userInfo.email,
         buyer_name: "홍길동",
         buyer_tel: "010-4242-4242",
-        buyer_addr: "서울특별시 강남구 신사동",
-        buyer_postcode: "01181",
+        // buyer_addr: "서울특별시 강남구 신사동",
+        // buyer_postcode: "01181",
         m_redirect_url: "http://localhost:3000/usedItem/payment/complete/",
       },
       (rsp: any) => {
@@ -38,6 +57,12 @@ export default function LoadingPage() {
         if (rsp.success) {
           // 결제 성공 시 로직,
           console.log(rsp);
+          const result = createPointTransactionOfLoading({
+            variables: {
+              impUid: rsp.imp_uid,
+            },
+          });
+          console.log(result);
 
           router.push("http://localhost:3000/usedItem/payment/complete/");
           // 백엔드에 결제관련 데이터 넘겨주기 => 즉, 뮤테이션 실행하기

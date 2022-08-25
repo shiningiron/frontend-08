@@ -72,11 +72,41 @@ export const Wrapper = styled.div`
   margin: 50px 50px 0px 50px;
 `;
 
-export const HeaderBox = styled.div``;
-export const ToolBox = styled.div``;
-export const DeleteBtn = styled.button``;
-export const EditBtn = styled.button``;
-export const ListBtn = styled.button``;
+export const HeaderBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+export const ToolBox = styled.div`
+  display: flex;
+  align-self: flex-end;
+  justify-content: space-between;
+  width: 15%;
+`;
+export const DeleteBtn = styled.button`
+  width: 3rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 0.625rem;
+  color: #fff;
+  cursor: pointer;
+`;
+export const EditBtn = styled.button`
+  width: 3rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 0.625rem;
+  color: #fff;
+  cursor: pointer;
+`;
+export const ListBtn = styled.button`
+  width: 3rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 0.625rem;
+  color: #fff;
+  cursor: pointer;
+`;
 
 export const Title = styled.h1`
   font-size: 3em;
@@ -90,27 +120,66 @@ export const Line = styled.div`
 `;
 export const ItemInfoBox = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
 `;
 export const Seller = styled.div`
-  font-size: 1.5rem;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #fff;
+  -webkit-text-stroke: 0.05rem #64ff;
 `;
 export const Price = styled.div`
   font-size: 2em;
   color: #ff0000;
+  margin-right: 2rem;
+`;
+export const Buybtn = styled.button`
+  width: 3rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 0.625rem;
+  color: #fff;
+  cursor: pointer;
 `;
 export const Remarks = styled.div`
   font-size: 2em;
   color: #fff;
 `;
+export const UserBox = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 21%;
+  margin: 1rem;
+`;
+export const UserThumb = styled.img`
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  border-radius: 50%;
+`;
 export const ImgCard = styled.img`
   width: 10rem;
   height: 10rem;
+  margin-right: 1rem;
   border-radius: 1rem;
   background-color: rgba(0, 0, 0, 0.1);
 `;
-export const ContentsBox = styled.div``;
-export const Contents = styled.div``;
+export const ImgBox = styled.div`
+  display: flex;
+  width: 40%;
+`;
+export const ContentsBox = styled.div`
+  display: flex;
+  width: 100%;
+`;
+export const Contents = styled.p`
+  width: 60%;
+  height: fit-content;
+  font-weight: 400;
+  font-size: 30px;
+  color: #fff;
+`;
 
 // ================ 리스트 =================
 

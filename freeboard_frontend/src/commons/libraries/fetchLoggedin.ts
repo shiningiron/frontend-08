@@ -7,6 +7,9 @@ const FETCH_USER_LOGGED_IN = gql`
     fetchUserLoggedIn {
       email
       name
+      userPoint {
+        amount
+      }
     }
   }
 `;
@@ -25,7 +28,6 @@ export async function getUserInfo(token) {
     );
     const result = await graphQLClient.request(FETCH_USER_LOGGED_IN);
     const newUserInfo = await result.fetchUserLoggedIn;
-    console.log("apollo", newUserInfo);
     return newUserInfo;
   } catch (error) {
     if (error instanceof Error) console.log(error.message);

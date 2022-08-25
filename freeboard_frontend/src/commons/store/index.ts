@@ -15,6 +15,9 @@ export const userInfoState = atom({
   default: {
     email: "",
     name: "",
+    userPoint: {
+      amount: 0,
+    },
   },
 });
 
@@ -36,6 +39,10 @@ export const logState = atom({
 export const resultImagesState = atom({
   key: "resultImagesState",
   default: ["", "", ""],
+});
+export const resultPointState = atom({
+  key: "resultPointState",
+  default: 0,
 });
 
 // export const fileState = atom({

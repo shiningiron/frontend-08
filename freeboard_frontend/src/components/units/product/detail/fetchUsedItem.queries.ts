@@ -9,10 +9,13 @@ export const FETCH_USED_ITEM = gql`
       contents
       price
       images
+      pickedCount
       seller {
         _id
         email
         name
+        picture
+
         createdAt
       }
     }
@@ -21,5 +24,20 @@ export const FETCH_USED_ITEM = gql`
 export const DELETE_USED_ITEM = gql`
   mutation deleteUseditem($useditemId: ID!) {
     deleteUseditem(useditemId: $useditemId)
+  }
+`;
+export const CREATE_POINT_BUY_AND_SELLING = gql`
+  mutation createPointTransactionOfBuyingAndSelling($useritemId: ID!) {
+    createPointTransactionOfBuyingAndSelling(useritemId: $useritemId) {
+      _id
+      name
+      price
+      soldAt
+    }
+  }
+`;
+export const TOGGLE_USED_ITEM_PICK = gql`
+  mutation toggleUseditemPick($useditemId: ID!) {
+    toggleUseditemPick(useditemId: $useditemId)
   }
 `;

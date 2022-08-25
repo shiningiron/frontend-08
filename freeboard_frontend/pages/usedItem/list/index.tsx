@@ -15,8 +15,9 @@ import ListItems from "../../../src/components/units/product/list/listItems";
 import TodayItemList from "../../../src/components/units/product/list/todayItem";
 import { useRecoilState } from "recoil";
 import { imageUrlsState } from "../../../src/commons/store";
+import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 
-const FETCH_USED_ITEMS = gql`
+export const FETCH_USED_ITEMS = gql`
   query fetchUseditems($page: Int) {
     fetchUseditems(page: $page) {
       _id
@@ -24,6 +25,8 @@ const FETCH_USED_ITEMS = gql`
       remarks
       contents
       price
+      images
+      pickedCount
       seller {
         _id
         name
@@ -84,6 +87,13 @@ const NewUsedItemBtn = styled.button`
   font-size: 3rem;
   line-height: 3.3rem;
   cursor: pointer;
+`;
+const Heart = styled(IoIosHeartEmpty)`
+  vertical-align: -9%;
+`;
+const HeartY = styled(IoIosHeart)`
+  vertical-align: -9%;
+  color: #6400ff;
 `;
 export default function UsedItemList() {
   const router = useRouter();

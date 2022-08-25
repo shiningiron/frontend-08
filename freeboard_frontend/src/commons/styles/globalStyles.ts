@@ -5,13 +5,13 @@ export const globalStyles = css`
     margin: 0;
     padding: 0;
     box-sizing: border;
-    font-size: 15px;
+    /* font-size: 15px; */
     font-family: "myfont";
     /* color: #fff; */
   }
-  html {
+  /* html {
     font-size: 15px;
-  }
+  } */
   body {
     /* min-height: 100vh; */
     background: linear-gradient(to bottom, #6400ff, #d8bfd8) fixed;

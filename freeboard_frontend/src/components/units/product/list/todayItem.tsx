@@ -43,7 +43,7 @@ const Item = styled.div`
   font-size: 0.9rem;
   cursor: pointer;
 `;
-const ImageCard = styled.div`
+const ImageCard = styled.img`
   width: 4.5rem;
   height: 4.5rem;
   border-radius: 1rem;
@@ -60,9 +60,14 @@ export default function TodayItemList(props: any) {
   return (
     <Wrapper>
       <BoardList>
-        {props.today.map((el) => (
+        {props.today.map((el: any) => (
           <List key={el._id} onClick={onClickToUsedItem(el)}>
-            <ImageCard />
+            {el.images[0] || el.images[1] ? (
+              // prettier-ignore
+              <ImageCard src={`https://storage.googleapis.com/${el.images[el.images[0] ? 0 : 1]}`} />
+            ) : (
+              <ImageCard src={"/images/pizza.png"} />
+            )}
             <Item>{el.name}</Item>
             <Item title={"remarks"}>{el.remarks}</Item>
           </List>
