@@ -44,7 +44,14 @@ export const resultPointState = atom({
   key: "resultPointState",
   default: 0,
 });
-
+export const isReplyState = atom({
+  key: "isReplyState",
+  default: false,
+});
+export const cmtIdState = atom({
+  key: "cmtIdState",
+  default: "",
+});
 // export const fileState = atom({
 //   key: "fileState",
 //   default: File,

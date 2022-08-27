@@ -26,7 +26,6 @@ export const FETCH_USED_ITEMS = gql`
       contents
       price
       images
-      pickedCount
       seller {
         _id
         name
@@ -88,19 +87,12 @@ const NewUsedItemBtn = styled.button`
   line-height: 3.3rem;
   cursor: pointer;
 `;
-const Heart = styled(IoIosHeartEmpty)`
-  vertical-align: -9%;
-`;
-const HeartY = styled(IoIosHeart)`
-  vertical-align: -9%;
-  color: #6400ff;
-`;
+
 export default function UsedItemList() {
   const router = useRouter();
   const [today, setToday] = useState<IUseditem[]>([]);
   const [imageUrls, setImageUrls] = useRecoilState(imageUrlsState);
-  const [keyword, setKeyword] = useState("");
-  const { data, fetchMore, refetch } = useQuery<
+  const { data, fetchMore } = useQuery<
     Pick<IQuery, "fetchUseditems">,
     IQueryFetchUseditemsArgs
   >(FETCH_USED_ITEMS);
@@ -143,9 +135,6 @@ export default function UsedItemList() {
     setImageUrls(["", "", ""]);
     router.push(`/usedItem/detail/${data._id}`);
   };
-  // const onChangeKeyword = (value: string) => {
-  //   setKeyword(value);
-  // };
 
   useEffect(() => {
     const result = JSON.parse(

@@ -20,7 +20,6 @@ export const HeartY = styled(IoIosHeart)`
   color: #ff00e6;
   /* ${(props: any) => (props.isCancel ? "#ff00e6" : "#fff")}; */
 `;
-
 export default function Pick(props: any) {
   return (
     <>

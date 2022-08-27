@@ -5,18 +5,21 @@ import { useMutation } from "@apollo/client";
 import { CREATE_POINT_BUY_AND_SELLING } from "./fetchUsedItem.queries";
 import { Modal } from "antd";
 import Pick from "../list/picked";
+import CmtListContainer from "../../../comment/commentList/cmtList.container";
+import CommentContainer from "../../../comment/wirte/comment.container";
 
 export default function FetchUsedItemUI(props: any) {
   const [createPointTransactionOfBuyingAndSelling] = useMutation(
     CREATE_POINT_BUY_AND_SELLING
   );
-  const onClickBuy = (data) => async () => {
+  const onClickBuy = (data: any) => async () => {
     try {
       const result = await createPointTransactionOfBuyingAndSelling({
         variables: {
           useritemId: data._id,
         },
       });
+      console.log(result);
       Modal.success({ content: "구매완료~" });
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
@@ -50,9 +53,9 @@ export default function FetchUsedItemUI(props: any) {
           구매
         </F.Buybtn>
         <Pick
-          onClick={props.onClickPick}
+          onClickPick={props.onClickPick}
           data={props.data}
-          isPick={props.IsPick}
+          isPick={props.isPick}
         />
       </F.ItemInfoBox>
       <F.ContentsBox>
@@ -76,6 +79,8 @@ export default function FetchUsedItemUI(props: any) {
           <F.Contents />
         )}
       </F.ContentsBox>
+      <CommentContainer />
+      <CmtListContainer />
     </F.Wrapper>
   );
 }

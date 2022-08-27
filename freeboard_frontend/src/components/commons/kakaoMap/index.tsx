@@ -89,7 +89,7 @@ export default function KakaoMapPage() {
         }
         function displayCenterInfo(result, status) {
           if (status === window.kakao.maps.services.Status.OK) {
-            let infoDiv = document.getElementById("centerAddr");
+            const infoDiv = document.getElementById("centerAddr");
 
             for (let i = 0; i < result.length; i++) {
               // 행정동의 region_type 값은 'H' 이므로

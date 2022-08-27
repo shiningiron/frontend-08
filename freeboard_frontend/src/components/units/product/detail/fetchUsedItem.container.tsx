@@ -43,14 +43,14 @@ export default function FetchUsedItemContainer() {
   const onClickDelete = async () => {
     try {
       const result = await deleteUseditem({
-        variables: { useditemId: router.query.useditemId },
+        variables: { useditemId: String(router.query.useditemId) },
         // refetchQueries: [{ query: FETCH_USED_ITEMS }],
       });
       Modal.info({ content: "게시글이 삭제 되었습니다." });
       router.push("/freeboard");
       console.log(result);
     } catch (error) {
-      Modal.error({ content: error.message });
+      if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
   const onClickPick = async () => {
@@ -60,10 +60,11 @@ export default function FetchUsedItemContainer() {
         refetchQueries: [
           {
             query: FETCH_USED_ITEM,
-            variables: { useditemId: router.query.useditemId },
+            variables: { useditemId: String(router.query.useditemId) },
           },
         ],
       });
+      console.log("찜 결과", result);
       setIsPick((prev) => !prev);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });

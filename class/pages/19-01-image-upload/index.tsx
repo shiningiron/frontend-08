@@ -31,6 +31,7 @@ export default function ImageUploadPage() {
             setImageUrl(result.data?.uploadFile.url || "");
         } catch (error) {
             Modal.error({ content: "에러발생!!!" });
+            // 센트리연결
         }
     };
 
